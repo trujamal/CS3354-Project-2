@@ -15,7 +15,6 @@ import java.util.Scanner;
  * life by calling <CODE>flush()</CODE>. This class also provides methods for
  * adding, remove, and searching for shipping orders from the list.
  *
- * @author Junye Wen
  */
 public class ShippingStore {
 
