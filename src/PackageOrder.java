@@ -8,9 +8,15 @@
  */
 public class PackageOrder {
 
-    private String trackingnumber;
+    private String trackingNumber;
     private String specification;
-    private String mailingclass;
+    private String mailingClass;
+
+    public PackageOrder() {
+        trackingNumber = "N/A";
+        specification = "N/A";
+        mailingClass = "N/A";
+    }
 
     /**
      * This constructor initializes the package order object. The constructor provides no
@@ -27,22 +33,10 @@ public class PackageOrder {
      *
      */
     public PackageOrder(String trackingnumber, String specification, String mailingclass) {
-        this.trackingnumber = trackingnumber;
+        this.trackingNumber = trackingnumber;
         this.specification = specification;
-        this.mailingclass = mailingclass;
+        this.mailingClass = mailingclass;
 
-    }
-
-    /**
-     *  Creates the default constructor
-     */
-
-    public PackageOrder()
-    {
-        super();
-       this.trackingnumber = "";
-       this.specification = "";
-       this.mailingclass = "";
     }
 
     /**
@@ -51,7 +45,7 @@ public class PackageOrder {
      * @return a <b><CODE>String</CODE></b> that is the tracking number of the package order.
      */
     public String getTrackingNumber() {
-        return trackingnumber;
+        return trackingNumber;
     }
 
     /**
@@ -69,7 +63,7 @@ public class PackageOrder {
      * @return a <b><CODE>string</CODE></b> that is the package order's mailing class
      */
     public String getMailingClass() {
-        return mailingclass;
+        return mailingClass;
     }
 
     /**
@@ -80,7 +74,7 @@ public class PackageOrder {
      */
     @Override
     public String toString() {
-        return trackingnumber + " " + specification + " " + mailingclass + " " + "\n";
+        return trackingNumber + " " + specification + " " + mailingClass + " " + "\n";
     }
 
     /**
@@ -92,7 +86,7 @@ public class PackageOrder {
      * @return the <CODE>boolean</CODE> value of the comparison.
      */
     public boolean equals(PackageOrder c) {
-        return c.getTrackingNumber().equals(this.trackingnumber);
+        return c.getTrackingNumber().equals(this.trackingNumber);
     }
 
 }
