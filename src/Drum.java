@@ -1,4 +1,4 @@
-public class Drum extends Package {
+public class Drum extends PackageOrder {
     private String material;
     private float diameter;
 
