@@ -4,8 +4,8 @@ public class Customer extends User {
      **************************************************************************/
 
     // Define private member variables.
-    private int phoneNumber;      // Holds Customers Largest dimension (integer number) - in inches
-    private int address;      // address (integer number) - in inches cubed
+    private String phoneNumber;      // Holds Customers phone number
+    private String address;      // Holds Customers address
 
 
     /***************************************************************************
@@ -21,15 +21,15 @@ public class Customer extends User {
     }
     /*
       Overloaded Constructor (Initialize to user specified values)
-      @param trackingnumber the item's unique trackingnumber.
-      @param specification the Customers Specification .
-      @param mailingclass the Customers mailing class .
+      @param ID the Customers unique ID number.
+      @param firstName the Customers first name.
+      @param lastName the Customers last name.
       @param phoneNumber the Customers mailing phoneNumber.
       @param address the Customers mailing address.
     */
-    public Customer(String trackingnumber, String specification, String mailingclass,
-               string phoneNumber, string address ){
-        super(trackingnumber, specification, mailingclass);
+    public Customer(int ID, String firstName, String lastName,
+               String phoneNumber, String address ){
+        super(ID, firstName, lastName);
         this.phoneNumber = phoneNumber;
         this.address = address;
     }
@@ -51,11 +51,11 @@ public class Customer extends User {
     /*
         @return Returns the Customer's phoneNumber and address
     */
-    public int getphoneNumber() {
+    public String getphoneNumber() {
         return phoneNumber;
     }
 
-    public int getaddress(){
+    public String getaddress(){
         return address;
     }
 
