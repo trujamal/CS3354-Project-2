@@ -47,19 +47,29 @@ public class MainApp {
                     shippingstore.showPackageOrders();
                     break;
                 case '2':
-                    System.out.println("\nPlease type description of package with the following pattern:\n"
-                            + "\n TRACKING #  TYPE   SPECIFICATION   CLASS   WEIGHT   VOLUME\n"
-                            + "example:\nGFR23 Box Books Retail 9500.00 45\n");
-                    String inTemp = in.nextLine();
+                    String inputType;
 
-                    String temp[] = inTemp.split(" ");
+                    System.out.println("Please select a package type: ");
+                    System.out.println("1. Envelope \n"
+                            + "2. Box \n"
+                            + "3. Crate \n"
+                            + "4. Drum \n");
+                    inputType = in.nextLine();
 
-                    if (temp.length != 6) {
-                        System.out.println("Not correct number of fields to process.");
-                        break;
+                    switch(inputType) {
+                        case "1":
+                            System.out.println("Please enter the Tracking number: ");
+
+                            break;
+                        case "2":
+                            break;
+                        case "3":
+                            break;
+                        case "4":
+                            break;
                     }
 
-                    shippingstore.addOrder(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5]);
+                    shippingstore.addOrder();
                     break;
                 case '3':
                     shippingstore.showPackageOrders();
