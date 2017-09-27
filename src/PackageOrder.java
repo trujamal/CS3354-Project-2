@@ -9,11 +9,8 @@
 public class PackageOrder {
 
     private final String trackingnumber;
-    private final String type;
     private final String specification;
     private final String mailingclass;
-    private final float weight;
-    private final int volume;
 
     /**
      * This constructor initializes the package order object. The constructor provides no
@@ -37,13 +34,10 @@ public class PackageOrder {
      * cubic inches, calculated as Width x Length x Height
      *
      */
-    public PackageOrder(String trackingnumber, String type, String specification, String mailingclass, float weight, int volume) {
+    public PackageOrder(String trackingnumber, String specification, String mailingclass) {
         this.trackingnumber = trackingnumber;
-        this.type = type;
         this.specification = specification;
         this.mailingclass = mailingclass;
-        this.weight = weight;
-        this.volume = volume;
     }
 
     /**
@@ -81,8 +75,7 @@ public class PackageOrder {
      */
     @Override
     public String toString() {
-        return trackingnumber + " " + type + " " + specification + " " + mailingclass + " "
-        		+ String.format("%.2f", weight) + " " + volume + "\n";
+        return trackingnumber + " " + specification + " " + mailingclass;
     }
 
     /**

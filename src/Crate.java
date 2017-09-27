@@ -1,4 +1,4 @@
-public class Crate extends Package {
+public class Crate extends PackageOrder {
 
     private float weight;
     private String content;
