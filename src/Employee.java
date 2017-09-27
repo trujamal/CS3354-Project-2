@@ -15,8 +15,7 @@ public class Employee extends User implements Serializable {
         ddban = 0;
     }
 
-    public Employee(String trackingnumber, String specification, String mailingclass,
-                    int height, int width ){
+    public Employee(String trackingnumber, String specification, String mailingclass){
         super(trackingnumber, specification, mailingclass);
         this.height = height;
         this.width = width;

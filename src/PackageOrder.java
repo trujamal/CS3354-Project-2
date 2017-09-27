@@ -8,9 +8,9 @@
  */
 public class PackageOrder {
 
-    private String trackingnumber = "";
-    private String specification = "";
-    private String mailingclass = "";
+    private String trackingnumber;
+    private String specification;
+    private String mailingclass;
 
 
     /**
@@ -32,6 +32,13 @@ public class PackageOrder {
         this.specification = specification;
         this.mailingclass = mailingclass;
 
+    }
+
+    PackageOrder()
+    {
+       String trackingnumber = "";
+       String specification = "";
+       String mailingclass = "";
     }
 
     /**
