@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class Envelope extends ShippingStore implements Serializable {
+public class Envelope extends Package implements Serializable {
     /***************************************************************************
      * VARIABLE DEFINITIONS
      **************************************************************************/
