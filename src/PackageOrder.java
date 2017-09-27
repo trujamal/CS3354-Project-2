@@ -8,9 +8,10 @@
  */
 public class PackageOrder {
 
-    private final String trackingnumber;
-    private final String specification;
-    private final String mailingclass;
+    private String trackingnumber = "";
+    private String specification = "";
+    private String mailingclass = "";
+
 
     /**
      * This constructor initializes the package order object. The constructor provides no
@@ -19,25 +20,18 @@ public class PackageOrder {
      *
      * @param trackingnumber a <b><CODE>String</CODE></b> that represents the tracking number
      *
-     * @param type a <b><CODE>String</CODE></b> that represents the type.
-     * Types: Postcard, Letter, Envelope, Packet, Box, Crate, Drum, Roll, Tube.
-     *
      * @param specification a <b><CODE>String</CODE></b> that represents the specification.
      * Specification: Fragile, Books, Catalogs, Do-not-Bend, N/A - one per package
      *
      * @param mailingclass a <b><CODE>String</CODE></b> that represents the mailing class
-     * Mailing class: First-Class, Priority, Retail, Ground, Metro.
-     *
-     * @param weight a <b><CODE>float</CODE></b> that represents the weight of the package in oz
-     *
-     * @param volume an <b><CODE>int</CODE></b> that represents the volume of the package in
-     * cubic inches, calculated as Width x Length x Height
+     * Mailing class: First-Class, Priority, Retail, Ground, Metro
      *
      */
     public PackageOrder(String trackingnumber, String specification, String mailingclass) {
         this.trackingnumber = trackingnumber;
         this.specification = specification;
         this.mailingclass = mailingclass;
+
     }
 
     /**
@@ -75,7 +69,7 @@ public class PackageOrder {
      */
     @Override
     public String toString() {
-        return trackingnumber + " " + specification + " " + mailingclass;
+        return trackingnumber + " " + specification + " " + mailingclass + " " + "\n";
     }
 
     /**
