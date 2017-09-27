@@ -33,6 +33,10 @@ public class PackageOrder {
 
     }
 
+    /**
+     *  Creates the default constructor
+     */
+
     public PackageOrder()
     {
         super();
