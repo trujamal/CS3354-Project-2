@@ -1,2 +1,2 @@
-public class Transaction {
+public class Transaction extends ShippingStore {
 }

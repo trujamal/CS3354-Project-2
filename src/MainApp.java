@@ -29,7 +29,7 @@ public class MainApp {
                 + "\t3. Delete a package order from a database.\n"
                 + "\t4. Search for a package order (given its Tracking #).\n"
                 + "\t5. Show a list of users in the database.\n"
-                + "\t6. Add new user to teh database.\n"
+                + "\t6. Add new user to the database.\n"
                 + "\t7. Update user info (given their id).\n"
                 + "\t8. Complete a shipping transaction.\n"
                 + "\t9. Show completed shipping transaction.\n"

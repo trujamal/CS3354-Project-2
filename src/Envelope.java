@@ -1,2 +1,2 @@
-public class Envelope {
+public class Envelope extends ShippingStore {
 }

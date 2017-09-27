@@ -1,2 +1,3 @@
-public class Drum {
+
+public class Drum extends ShippingStore {
 }
