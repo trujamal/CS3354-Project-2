@@ -1,2 +1,2 @@
-public class Crate {
+public class Crate extends ShippingStore {
 }
