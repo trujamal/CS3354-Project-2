@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 /**
  * This is the main class of the ShippingStore database manager. It provides a
- * console for a user to use the 5 main commands.
+ * console for a user to use the 9 main commands.
  *
  * @author Jamal Rasool and Zach Sotak
  */
@@ -75,22 +75,31 @@ public class MainApp {
                     shippingstore.searchPackageOrder(trackingNum);
                     break;
                 case '5':
-                    float high = 0;
-                    float low = 0;
-                    
-                    System.out.println("\nEnter lower-bound weight.\n");
-                    low = in.nextFloat();
-                    System.out.println("\nEnter upper-bound weight.\n");
-                    high = in.nextFloat();
-                    in.nextLine();
-                    
-                    shippingstore.showPackageOrdersRange(low, high);
+                    // Show a list of users in the database
+
                     break;
                 case '6':
+                    // Show a list of users in the database
+
 
                     break;
 
+                case '7':
+                    // Update user info
 
+                    break;
+
+                case '8':
+
+                    // Complete a shipping
+
+                    break;
+
+                case '9':
+
+                    // Show completed shipping transaction
+
+                    break;
 
                 case 'h':
                     System.out.println(welcomeMessage);

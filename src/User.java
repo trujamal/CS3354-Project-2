@@ -1,2 +1,2 @@
-public class User extends ShippingStore {
+public class User {
 }
