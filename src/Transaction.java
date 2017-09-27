@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-public class Transaction extends ShippingStore {
+public class Transaction {
     /**
      * This constructor is hard-coded to open "<CODE>PackageOrderDB.txt</CODE>" and
      * initialize the <CODE>packageOrerList</CODE> with its contents. If no such file
