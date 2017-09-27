@@ -24,19 +24,23 @@ public class MainApp {
         ShippingStore shippingstore = new ShippingStore();
 
         String welcomeMessage = "\nWelcome to the Shipping Store database. Choose one of the following functions:\n\n"
-                + "\t1. Show all existing package orders in the database\n"
+                + "\t1. Show all existing package orders in the database (Sorted by tracking number)\n"
                 + "\t2. Add a new package order to the database.\n"
                 + "\t3. Delete a package order from a database.\n"
                 + "\t4. Search for a package order (given its Tracking #).\n"
-                + "\t5. Show a list of orders within a given weight range.\n"
-                + "\t6. Exit program.\n";
+                + "\t5. Show a list of users in the database.\n"
+                + "\t6. Add new user to teh database.\n"
+                + "\t7. Update user info (given their id).\n"
+                + "\t8. Complete a shipping transaction.\n"
+                + "\t9. Show completed shipping transaction.\n"
+                + "\t10. Exit program.\n";
 
         System.out.println(welcomeMessage);
 
         int selection = in.next().charAt(0);
         in.nextLine();
 
-        while (selection != '6') {
+        while (selection != '9') {
 
             switch (selection) {
                 case '1':
@@ -82,6 +86,12 @@ public class MainApp {
                     
                     shippingstore.showPackageOrdersRange(low, high);
                     break;
+                case '6':
+
+                    break;
+
+
+
                 case 'h':
                     System.out.println(welcomeMessage);
                     break;
