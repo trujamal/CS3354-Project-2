@@ -18,7 +18,7 @@ import java.util.Scanner;
  */
 public class ShippingStore {
 
-    private ArrayList<PackageOrder> packageOrerList;
+    private ArrayList<PackageOrder> packageOrderList;
 
     /**
      * This constructor is hard-coded to open "<CODE>PackageOrderDB.txt</CODE>" and
@@ -29,7 +29,7 @@ public class ShippingStore {
      * @throws IOException
      */
     public ShippingStore() throws IOException {
-        packageOrerList = new ArrayList<>();
+        packageOrderList = new ArrayList<>();
         Scanner orderScanner;
 
         File dataFile = new File("PackageOrderDB.txt");
@@ -51,8 +51,7 @@ public class ShippingStore {
             // split values using the space character as separator
             String[] temp = orderScanner.nextLine().split(" ");
 
-            packageOrerList.add(new PackageOrder(temp[0], temp[1], temp[2], temp[3],
-                    Float.parseFloat(temp[4]), Integer.parseInt(temp[5])));
+            packageOrderList.add(new PackageOrder(temp[0], temp[1], temp[2]));
         }
 
         //Package order list is now in the ArrayList completely so we can close the file
@@ -65,7 +64,7 @@ public class ShippingStore {
      *
      */
     public void showPackageOrders() {
-        showPackageOrders(packageOrerList);
+        showPackageOrders(packageOrderList);
     }
 
     /**
@@ -83,37 +82,13 @@ public class ShippingStore {
         for (int i = 0; i < orders.size(); i++) {
             System.out.println(String.format("| %-11s| %-8s| %-14s| %-12s| %-11s| %-7s|",
                     orders.get(i).getTrackingNumber(),
-                    orders.get(i).getType(),
                     orders.get(i).getSpecification(),
-                    orders.get(i).getMailingClass(),
-                    String.format("%.2f", orders.get(i).getWeight()),
-                    Integer.toString(orders.get(i).getVolume())
-                ));
+                    orders.get(i).getMailingClass()));
         }
         System.out.println(" --------------------------------------------------------------------------\n");
 
     }
 
-    /**
-     * This method displays package orders that have a weight within the range of
-     * <CODE>low</CODE> to <CODE>high</CODE>.
-     *
-     * @param low a float that is the lower bound weight.
-     * @param high a float that is the upper bound weight.
-     */
-    public void showPackageOrdersRange(float low, float high) {
-        ArrayList<PackageOrder> orders = new ArrayList<>();
-        for (PackageOrder order : packageOrerList) {
-            if ((low <= order.getWeight()) && (order.getWeight() <= high)) {
-                orders.add(order);
-            }
-        }
-        
-        if (orders.isEmpty())
-            System.out.println("No packages found with weight within the given range.\n");
-        else
-            showPackageOrders(orders);
-    }
 
     /**
      * This method can be used to find a package order in the Arraylist of orders.
@@ -127,8 +102,8 @@ public class ShippingStore {
 
         int index = -1;
 
-        for (int i = 0; i < packageOrerList.size(); i++) {
-            String temp = packageOrerList.get(i).getTrackingNumber();
+        for (int i = 0; i < packageOrderList.size(); i++) {
+            String temp = packageOrderList.get(i).getTrackingNumber();
 
             if (trackingNumber.equalsIgnoreCase(temp)) {
                 index = i;
@@ -161,33 +136,7 @@ public class ShippingStore {
     }
     
 
-    /**
-     * This method is used to add a package order to the orderList ArrayList. In order for a
-     * package order to be added to the ArrayList it must comply with the following:
-     * <p>
-     * 1. The order is not already in the ArrayList according to the tracking number
-     * as the unique key.
-     * <p>
-     * 2. The TrackningNumber string matches the following regular expression:
-     * <CODE>"[A-Za-z0-9]{5}"</CODE> or in other words: it
-     * is 5 avinhanumeric characters.
-     * <p>
-     * 3. The Type of the order can be only one of the following:
-     *    Postcard, Letter, Envelope, Packet, Box, Crate, Drum, Roll, Tube.
-     * <p>
-     * 4. The Specification of the order can be only one of the following:
-     *    Fragile, Books, Catalogs, Do-not-Bend, N/A.
-     * <p>
-     * 5. The Mailing Class of the order can be only one of the following:
-     *    First-Class, Priority, Retail, Ground, Metro.
-     * <p>
-     * 6. The Weight must be non-negative.
-     * <p>
-     * 7. The Volume must be non-negative.
-     * @param toAdd the <CODE>PackageOrder</CODE> object to add to the
-     * <CODE>packageOrerList</CODE>
-     */
-    public void addOrder(String trackingnumber, String type, String specification, String mailingclass, String weight, String volume) {
+    public void addOrder(String trackingnumber, String specification, String mailingclass) {
 
         if (this.findPackageOrder(trackingnumber) != -1) {
             System.out.println("Package Order already exists in database. \n");
@@ -197,15 +146,6 @@ public class ShippingStore {
         if (!trackingnumber.matches("[A-Za-z0-9]{5}")) {
             System.out.println("Invalid Tracking Number: not proper format."
                 + "Tracking Number must be at least 5 alphanumeric characters.");
-            return;
-        }
-
-        if (!(type.equals("Postcard") || type.equals("Letter") || type.equals("Envelope")
-            || type.equals("Packet") || type.equals("Box")|| type.equals("Crate")
-            || type.equals("Drum")|| type.equals("Roll")|| type.equals("Tube"))) {
-            System.out.println("Invalid type:\n"
-                + "Type must be one of following: "
-                + "Postcard, Letter, Envelope, Packet, Box, Crate, Drum, Roll, Tube.");
             return;
         }
 
@@ -225,37 +165,19 @@ public class ShippingStore {
             return;
         }
 
-        if (Float.parseFloat(weight) < 0) {
-            System.out.println("The weight of package cannot be negative.");
-            return;
-        }
-
-        if (!volume.matches("[0-9]{1,6}")) {
-            System.out.println("Invalid volume:\n"
-                + "The package's volume has to be an integer number between 0 and 999999. ");
-            return;
-        }
-
         //If passed all the checks, add the order to the list
-        packageOrerList.add(new PackageOrder(trackingnumber, type, specification, mailingclass,
-                Float.parseFloat(weight), Integer.parseInt(volume)));
+        packageOrderList.add(new PackageOrder(trackingnumber, specification, mailingclass));
         System.out.println("Package Order has been added.\n");
     }
 
-    /**
-     * This method will remove an order from the <CODE>packageOrerList</CODE> ArrayList. It
-     * will remove the instance of an order that matches tracking number that was
-     * passed to this method. If no such order exists, it will produce an error message.
-     *
-     * @param toDelete the <CODE>PackageOrder</CODE> object to be removed.
-     */
+
     public void removeOrder(String trackingNum) {
         int orderID = findPackageOrder(trackingNum);
         if (orderID == -1) {
             System.out.println("\nAction failed. No package order with the given tracking # exist in database.\n");
         }
         else {
-            packageOrerList.remove(orderID);
+            packageOrderList.remove(orderID);
             System.out.println("\nAction successful. Package order has been removed from the database.\n");
         }
     }
@@ -269,8 +191,8 @@ public class ShippingStore {
      * invalid.
      */
     public PackageOrder getPackageOrder(int i) {
-        if (i < packageOrerList.size() && i >= 0) {
-            return packageOrerList.get(i);
+        if (i < packageOrderList.size() && i >= 0) {
+            return packageOrderList.get(i);
         } else {
             System.out.println("Invalid Index. Please enter another command or 'h' to list the commands.");
             return null;
@@ -286,7 +208,7 @@ public class ShippingStore {
     public void flush() throws IOException {
         PrintWriter pw = new PrintWriter("PackageOrderDB.txt");
 
-        for (PackageOrder c : packageOrerList) {
+        for (PackageOrder c : packageOrderList) {
             pw.print(c.toString());
         }
 

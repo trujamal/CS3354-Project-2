@@ -16,8 +16,8 @@ public class Customer extends User {
     */
     public Customer(){
         super();
-        phoneNumber = "";
-        address = "";
+        phoneNumber = " ";
+        address = " ";
     }
     /*
       Overloaded Constructor (Initialize to user specified values)

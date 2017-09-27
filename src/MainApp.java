@@ -47,19 +47,82 @@ public class MainApp {
                     shippingstore.showPackageOrders();
                     break;
                 case '2':
-                    System.out.println("\nPlease type description of package with the following pattern:\n"
-                            + "\n TRACKING #  TYPE   SPECIFICATION   CLASS   WEIGHT   VOLUME\n"
-                            + "example:\nGFR23 Box Books Retail 9500.00 45\n");
-                    String inTemp = in.nextLine();
+                    String inputType;
+                    String trackNum = "N/A";
+                    String spec = "N/A";
+                    String mail = "N/A";
 
-                    String temp[] = inTemp.split(" ");
+                    System.out.println("Please select a package type: ");
+                    System.out.println("1. Envelope \n"
+                            + "2. Box \n"
+                            + "3. Crate \n"
+                            + "4. Drum \n");
+                    inputType = in.nextLine();
 
-                    if (temp.length != 6) {
-                        System.out.println("Not correct number of fields to process.");
-                        break;
+                    switch(inputType) {
+                        case "1":
+                            int height;
+                            int width;
+                            System.out.println("Please enter the Tracking number: ");
+                            trackNum = in.nextLine();
+                            System.out.println("Please enter the Specification (Fragile, Catalogs, Books, Do-not-bend, n/a): ");
+                            spec = in.nextLine();
+                            System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
+                            mail = in.nextLine();
+                            System.out.println("Please enter the height of the Envelope: ");
+                            height = Integer.parseInt(in.nextLine());
+                            System.out.println("Please enter the width of the Envelope: ");
+                            width = Integer.parseInt(in.nextLine());
+                            break;
+
+                        case "2":
+                            int dimension;
+                            int volume;
+                            System.out.println("Please enter the Tracking number: ");
+                            trackNum = in.nextLine();
+                            System.out.println("Please enter the Specification (Fragile, Catalogs, Books, Do-not-bend, n/a): ");
+                            spec = in.nextLine();
+                            System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
+                            mail = in.nextLine();
+                            System.out.println("Please enter the largest dimension of the box: ");
+                            dimension = Integer.parseInt(in.nextLine());
+                            System.out.println("Please enter the volume of the box: ");
+                            volume = Integer.parseInt(in.nextLine());
+                            break;
+
+                        case "3":
+                            float weight;
+                            String content;
+                            System.out.println("Please enter the Tracking number: ");
+                            trackNum = in.nextLine();
+                            System.out.println("Please enter the Specification (Fragile, Catalogs, Books, Do-not-bend, n/a): ");
+                            spec = in.nextLine();
+                            System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
+                            mail = in.nextLine();
+                            System.out.println("Please enter the weight of the Crate: ");
+                            weight = Float.parseFloat(in.nextLine());
+                            System.out.println("Please enter the contents of the Crate: ");
+                            content = in.nextLine();
+                            break;
+
+                        case "4":
+                            String material;
+                            float diameter;
+                            System.out.println("Please enter the Tracking number: ");
+                            trackNum = in.nextLine();
+                            System.out.println("Please enter the Specification (Fragile, Catalogs, Books, Do-not-bend, n/a): ");
+                            spec = in.nextLine();
+                            System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
+                            mail = in.nextLine();
+                            System.out.println("Please enter the material of the Drum: ");
+                            material = in.nextLine();
+                            System.out.println("Please enter the diameter of the Drum: ");
+                            diameter = Float.parseFloat(in.nextLine());
+
+                            break;
                     }
 
-                    shippingstore.addOrder(temp[0], temp[1], temp[2], temp[3], temp[4], temp[5]);
+                    shippingstore.addOrder(trackNum, spec, mail);
                     break;
                 case '3':
                     shippingstore.showPackageOrders();
