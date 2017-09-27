@@ -22,6 +22,8 @@ public class Employee extends User implements Serializable {
         ddbank = bankNum;
     }
 
+   //todo  @Override display
+
     /*************************************
      * Getters
      **************************************/
