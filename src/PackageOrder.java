@@ -8,10 +8,9 @@
  */
 public class PackageOrder {
 
-    private String trackingnumber = "";
-    private String specification = "";
-    private String mailingclass = "";
-
+    private String trackingnumber;
+    private String specification;
+    private String mailingclass;
 
     /**
      * This constructor initializes the package order object. The constructor provides no
@@ -32,6 +31,18 @@ public class PackageOrder {
         this.specification = specification;
         this.mailingclass = mailingclass;
 
+    }
+
+    /**
+     *  Creates the default constructor
+     */
+
+    public PackageOrder()
+    {
+        super();
+       this.trackingnumber = "";
+       this.specification = "";
+       this.mailingclass = "";
     }
 
     /**
