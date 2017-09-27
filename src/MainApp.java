@@ -48,6 +48,9 @@ public class MainApp {
                     break;
                 case '2':
                     String inputType;
+                    String trackNum = "N/A";
+                    String spec = "N/A";
+                    String mail = "N/A";
 
                     System.out.println("Please select a package type: ");
                     System.out.println("1. Envelope \n"
@@ -58,18 +61,68 @@ public class MainApp {
 
                     switch(inputType) {
                         case "1":
+                            int height;
+                            int width;
                             System.out.println("Please enter the Tracking number: ");
+                            trackNum = in.nextLine();
+                            System.out.println("Please enter the Specification (Fragile, Catalogs, Books, Do-not-bend, n/a): ");
+                            spec = in.nextLine();
+                            System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
+                            mail = in.nextLine();
+                            System.out.println("Please enter the height of the Envelope: ");
+                            height = Integer.parseInt(in.nextLine());
+                            System.out.println("Please enter the width of the Envelope: ");
+                            width = Integer.parseInt(in.nextLine());
+                            break;
 
-                            break;
                         case "2":
+                            int dimension;
+                            int volume;
+                            System.out.println("Please enter the Tracking number: ");
+                            trackNum = in.nextLine();
+                            System.out.println("Please enter the Specification (Fragile, Catalogs, Books, Do-not-bend, n/a): ");
+                            spec = in.nextLine();
+                            System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
+                            mail = in.nextLine();
+                            System.out.println("Please enter the largest dimension of the box: ");
+                            dimension = Integer.parseInt(in.nextLine());
+                            System.out.println("Please enter the volume of the box: ");
+                            volume = Integer.parseInt(in.nextLine());
                             break;
+
                         case "3":
+                            float weight;
+                            String content;
+                            System.out.println("Please enter the Tracking number: ");
+                            trackNum = in.nextLine();
+                            System.out.println("Please enter the Specification (Fragile, Catalogs, Books, Do-not-bend, n/a): ");
+                            spec = in.nextLine();
+                            System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
+                            mail = in.nextLine();
+                            System.out.println("Please enter the weight of the Crate: ");
+                            weight = Float.parseFloat(in.nextLine());
+                            System.out.println("Please enter the contents of the Crate: ");
+                            content = in.nextLine();
                             break;
+
                         case "4":
+                            String material;
+                            float diameter;
+                            System.out.println("Please enter the Tracking number: ");
+                            trackNum = in.nextLine();
+                            System.out.println("Please enter the Specification (Fragile, Catalogs, Books, Do-not-bend, n/a): ");
+                            spec = in.nextLine();
+                            System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
+                            mail = in.nextLine();
+                            System.out.println("Please enter the material of the Drum: ");
+                            material = in.nextLine();
+                            System.out.println("Please enter the diameter of the Drum: ");
+                            diameter = Float.parseFloat(in.nextLine());
+
                             break;
                     }
 
-                    shippingstore.addOrder();
+                    shippingstore.addOrder(trackNum, spec, mail);
                     break;
                 case '3':
                     shippingstore.showPackageOrders();
