@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class Envelope extends ShippingStore implements Serializable {
+public class Envelope extends PackageOrder implements Serializable {
     /***************************************************************************
      * VARIABLE DEFINITIONS
      **************************************************************************/
@@ -14,7 +14,7 @@ public class Envelope extends ShippingStore implements Serializable {
      * CONSTRUCTORS
      **************************************************************************/
     /*
-      Default Constructor (Initialize to "0" or "").
+      Default Constructor (Initialize to "0")
     */
     public Envelope(){
         super();
@@ -24,17 +24,43 @@ public class Envelope extends ShippingStore implements Serializable {
     /*
       Overloaded Constructor (Initialize to user specified values)
       @param trackingnumber the item's unique trackingnumber.
-      @param type the item's available type (>= 0).
-      @param specification the item's price (> 0.00).
-      @param mailingclass the item's title.
-      @param isbn the item's unique ISBN.
-      @param author the item's specific author.
+      @param specification the envelopes Specification .
+      @param mailingclass the envelopes mailing class .
+      @param height the envelopes mailing height.
+      @param width the envelopes mailing width.
     */
-    public Envelope(String trackingnumber, String type, String specification, String mailingclass
-                float weight, int volume, ){
-        super(trackingnumber, type, specification, mailingclass, weight, volume);
+    public Envelope(String trackingnumber, String specification, String mailingclass,
+                 int height, int width ){
+        super(trackingnumber, specification, mailingclass);
         this.height = height;
         this.width = width;
     }
+
+    /***************************************************************************
+     * PUBLIC MEMBER METHODS
+     **************************************************************************/
+    public void display() {
+        // Display's universal attributes in addition to
+        // Envelope's specific attributes.
+        super.display();
+        System.out.println("Height: " + height);
+        System.out.println();
+        System.out.println("Width " + width);
+    }
+    /*************************************
+     * Getters
+     **************************************/
+    /*
+        @return Returns the Envelope's Height and Width
+    */
+    public int getHeight() {
+        return height;
+    }
+
+    public int getWidth(){
+        return width;
+    }
+
+
 
 }
