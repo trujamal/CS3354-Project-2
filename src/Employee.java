@@ -22,7 +22,7 @@ public class Employee extends User implements Serializable {
         ddbank = bankNum;
     }
 
-   //todo  @Override display
+
    @Override
    public void display() {
        // Display's universal attributes in addition to
