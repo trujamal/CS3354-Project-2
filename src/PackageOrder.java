@@ -12,7 +12,6 @@ public class PackageOrder {
     private String specification;
     private String mailingclass;
 
-
     /**
      * This constructor initializes the package order object. The constructor provides no
      * user input validation. That should be handled by the class that creates a
@@ -34,11 +33,12 @@ public class PackageOrder {
 
     }
 
-    PackageOrder()
+    public PackageOrder()
     {
-       String trackingnumber = "";
-       String specification = "";
-       String mailingclass = "";
+        super();
+       this.trackingnumber = "";
+       this.specification = "";
+       this.mailingclass = "";
     }
 
     /**
