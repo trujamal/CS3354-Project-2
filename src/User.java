@@ -14,6 +14,9 @@ public class User {
         firstN = firstName;
         lastN = lastName;
     }
+    public void display() {
+        System.out.println(ID + " " + firstName + " " + lastName);
+    }
 
     public int getID() {return ID;}
     public String getFirstName() {return firstName;}
