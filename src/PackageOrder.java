@@ -77,6 +77,10 @@ public class PackageOrder {
         return trackingNumber + " " + specification + " " + mailingClass + " " + "\n";
     }
 
+    public void display() {
+        System.out.println(trackingNumber + " " + specification + " " + mailingClass);
+    }
+
     /**
      * This method provides a way to compare two package order objects.
      *
