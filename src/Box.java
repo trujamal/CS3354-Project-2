@@ -36,6 +36,7 @@ public class Box extends PackageOrder {
     /***************************************************************************
      * PUBLIC MEMBER METHODS
      **************************************************************************/
+    @Override
     public void display() {
         // Display's universal attributes in addition to
         // Box's specific attributes.

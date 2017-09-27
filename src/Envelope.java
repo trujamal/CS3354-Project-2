@@ -29,8 +29,7 @@ public class Envelope extends PackageOrder implements Serializable {
       @param height the envelopes mailing height.
       @param width the envelopes mailing width.
     */
-    public Envelope(String trackingnumber, String specification, String mailingclass,
-                 int height, int width ){
+    public Envelope(String trackingnumber, String specification, String mailingclass, int height, int width ){
         super(trackingnumber, specification, mailingclass);
         this.height = height;
         this.width = width;
@@ -39,6 +38,7 @@ public class Envelope extends PackageOrder implements Serializable {
     /***************************************************************************
      * PUBLIC MEMBER METHODS
      **************************************************************************/
+    @Override
     public void display() {
         // Display's universal attributes in addition to
         // Envelope's specific attributes.
