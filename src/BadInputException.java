@@ -1,2 +1,2 @@
-public class BadInputException extends ShippingStore {
+public class BadInputException {
 }
