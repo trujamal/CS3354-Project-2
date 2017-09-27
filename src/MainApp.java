@@ -77,9 +77,11 @@ public class MainApp {
                 case '5':
                     // Show a list of users in the database
 
+
                     break;
                 case '6':
                     // Show a list of users in the database
+
 
 
                     break;
@@ -87,17 +89,20 @@ public class MainApp {
                 case '7':
                     // Update user info
 
+
+
                     break;
 
                 case '8':
-
                     // Complete a shipping
+
+
 
                     break;
 
                 case '9':
-
                     // Show completed shipping transaction
+
 
                     break;
 

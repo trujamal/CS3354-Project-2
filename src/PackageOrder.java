@@ -56,15 +56,6 @@ public class PackageOrder {
     }
 
     /**
-     * This method returns the package order's type.
-     *
-     * @return a <b><CODE>String</CODE></b> that is the package order's type.
-     */
-    public String getType() {
-        return type;
-    }
-
-    /**
      * This method returns the package order's specification.
      *
      * @return a <b><CODE>String</CODE></b> that is the package order's specification.
@@ -80,24 +71,6 @@ public class PackageOrder {
      */
     public String getMailingClass() {
         return mailingclass;
-    }
-
-    /**
-     * This method returns the package's weight.
-     *
-     * @return a <b><CODE>float</CODE></b> that is the package's weight
-     */
-    public float getWeight() {
-        return weight;
-    }
-
-    /**
-     * This method returns the package's volume.
-     *
-     * @return an <b><CODE>int</CODE></b> that is the package's volume
-     */
-    public int getVolume() {
-        return volume;
     }
 
     /**
