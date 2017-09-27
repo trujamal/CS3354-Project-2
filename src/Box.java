@@ -27,8 +27,7 @@ public class Box extends PackageOrder {
       @param largestDimension the Boxes mailing largestDimension.
       @param volume the Boxes mailing volume.
     */
-    public Box(String trackingnumber, String specification, String mailingclass,
-                    int largestDimension, int volume ){
+    public Box(String trackingnumber, String specification, String mailingclass, int largestDimension, int volume ){
         super(trackingnumber, specification, mailingclass);
         this.largestDimension = largestDimension;
         this.volume = volume;
