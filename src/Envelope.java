@@ -1,4 +1,5 @@
 import java.io.Serializable;
+import java.util.Scanner;
 
 public class Envelope extends PackageOrder implements Serializable {
     /***************************************************************************
@@ -14,14 +15,6 @@ public class Envelope extends PackageOrder implements Serializable {
      * CONSTRUCTORS
      **************************************************************************/
     /*
-      Default Constructor (Initialize to "0")
-    */
-    public Envelope(){
-        super();
-        height = 0;
-        width = 0;
-    }
-    /*
       Overloaded Constructor (Initialize to user specified values)
       @param trackingnumber the item's unique trackingnumber.
       @param specification the envelopes Specification .
@@ -33,6 +26,7 @@ public class Envelope extends PackageOrder implements Serializable {
         super(trackingnumber, specification, mailingclass);
         this.height = height;
         this.width = width;
+
     }
 
     /***************************************************************************
@@ -54,10 +48,16 @@ public class Envelope extends PackageOrder implements Serializable {
         @return Returns the Envelope's Height and Width
     */
     public int getHeight() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Please enter the height of the Envelope: ");
+        height = Integer.parseInt(in.nextLine());
         return height;
     }
 
     public int getWidth(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Please enter the width of the Envelope: ");
+        width = Integer.parseInt(in.nextLine());
         return width;
     }
 

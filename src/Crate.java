@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Crate extends PackageOrder {
 
     private float weight;
@@ -16,10 +18,18 @@ public class Crate extends PackageOrder {
     }
 
     public float getWeight() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Please enter the weight of the Crate: ");
+        weight = Float.parseFloat(in.nextLine());
+
+
         return weight;
     }
 
     public String getContent() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Please enter the contents of the Crate: ");
+        content = in.nextLine();
         return content;
     }
 }
