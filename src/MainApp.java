@@ -37,6 +37,11 @@ public class MainApp {
 
         System.out.println(welcomeMessage);
 
+        // Displays Menu Options
+        MenuOptions();
+
+        // Selection
+
         int selection = in.next().charAt(0);
         in.nextLine();
 
@@ -169,7 +174,7 @@ public class MainApp {
 
                     break;
                 case '0':
-                    System.out.println("Exiting Program, Thank You please work!");
+                    System.out.println("Exiting Program, Thank You!");
                     System.exit(0);
                     break;
 
@@ -193,5 +198,20 @@ public class MainApp {
         
         System.out.println("Done!");
 
+    }
+    public static void MenuOptions()
+    {
+        String welcomeMessage = "\nWelcome to the Shipping Store database. Choose one of the following functions:\n\n"
+                + "\t1. Show all existing package orders in the database (Sorted by tracking number)\n"
+                + "\t2. Add a new package order to the database.\n"
+                + "\t3. Delete a package order from a database.\n"
+                + "\t4. Search for a package order (given its Tracking #).\n"
+                + "\t5. Show a list of users in the database.\n"
+                + "\t6. Add new user to the database.\n"
+                + "\t7. Update user info (given their id).\n"
+                + "\t8. Complete a shipping transaction.\n"
+                + "\t9. Show completed shipping transaction.\n"
+                + "\t10. Exit program.\n";
+        System.out.println(welcomeMessage);
     }
 }

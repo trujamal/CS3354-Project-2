@@ -7,7 +7,7 @@
  * @author Junye Wen
  */
 public class PackageOrder {
-
+    
     private String trackingNumber;
     private String specification;
     private String mailingClass;
