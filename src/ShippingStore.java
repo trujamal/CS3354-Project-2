@@ -9,8 +9,8 @@ import java.util.Scanner;
  * This class is used to represent a database interface for a list of
  * <CODE>Package Order</CODE>'s. It using a plain-text file "PackageOrderDB.txt"
  * to store and write package order objects in readable text form. It contains
- * an <CODE>ArrayList</CODE> called <CODE>packageOrerList</CODE> to store the
- * database in a runtime friendly data structure. The <CODE>packageOrerList</CODE>
+ * an <CODE>ArrayList</CODE> called <CODE>PackageOrderList</CODE> to store the
+ * database in a runtime friendly data structure. The <CODE>PackageOrderList</CODE>
  * is written to "PackageOrderDB.txt" at the end of the <CODE>ShippingStore</CODE> object's
  * life by calling <CODE>flush()</CODE>. This class also provides methods for
  * adding, remove, and searching for shipping orders from the list.
@@ -22,9 +22,9 @@ public class ShippingStore {
 
     /**
      * This constructor is hard-coded to open "<CODE>PackageOrderDB.txt</CODE>" and
-     * initialize the <CODE>packageOrerList</CODE> with its contents. If no such file
+     * initialize the <CODE>PackageOrderList</CODE> with its contents. If no such file
      * exists, then one is created. The contents of the file are "loaded" into
-     * the packageOrerList ArrayList in no particular order. The file is then closed
+     * the PackageOrderList ArrayList in no particular order. The file is then closed
      * during the duration of the program until <CODE>flush()</CODE> is called.
      * @throws IOException
      */
@@ -59,7 +59,7 @@ public class ShippingStore {
     }
 
     /**
-     * Method showPackageOrer displays the current list of package orders in the Arraylist in no
+     * Method showPackageOrder displays the current list of package orders in the Arraylist in no
      * particular order.
      *
      */
@@ -75,17 +75,17 @@ public class ShippingStore {
      */
     private void showPackageOrders(ArrayList<PackageOrder> orders) {
 
-        System.out.println(" -------------------------------------------------------------------------- ");
-        System.out.println("| Tracking # | Type    | Specification | Class       | Weight(oz) | Volume |");
-        System.out.println(" -------------------------------------------------------------------------- ");
+        System.out.println(" ------------------------------------------------------------------------------------- ");
+        System.out.println("| Tracking # | Specification    | Mailing Class |          Other Details              |");
+        System.out.println(" ------------------------------------------------------------------------------------- ");
 
         for (int i = 0; i < orders.size(); i++) {
-            System.out.println(String.format("| %-11s| %-8s| %-14s| %-12s| %-11s| %-7s|",
+            System.out.println(String.format("| %-14s| %-14s| %-14s| %-35s|",
                     orders.get(i).getTrackingNumber(),
                     orders.get(i).getSpecification(),
                     orders.get(i).getMailingClass()));
         }
-        System.out.println(" --------------------------------------------------------------------------\n");
+        System.out.println(" -------------------------------------------------------------------------------------\n");
 
     }
 

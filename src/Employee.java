@@ -22,7 +22,18 @@ public class Employee extends User implements Serializable {
         ddbank = bankNum;
     }
 
-   //todo  @Override display
+
+   @Override
+   public void display() {
+       // Display's universal attributes in addition to
+       // Customer's specific attributes.
+       super.display();
+       System.out.println("SSN: " + SSN);
+       System.out.println();
+       System.out.println("Monthly Salary: " + monthlySalary);
+       System.out.println();
+       System.out.println("Bank Deposit Number " + ddbank);
+   }
 
     /*************************************
      * Getters
