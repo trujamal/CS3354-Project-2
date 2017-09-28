@@ -157,11 +157,11 @@ public class ShippingStore {
             return;
         }
 
-        if (!(mailingclass.equals("First-Class") || mailingclass.equals("Priority") || mailingclass.equals("Retail")
+        if (!(mailingclass.equals("First") || mailingclass.equals("Priority") || mailingclass.equals("Retail")
             || mailingclass.equals("Ground") || mailingclass.equals("Metro")) ) {
             System.out.println("Invalid Mailing Class:\n"
                 + "Mailing Class must be one of following: "
-                + "First-Class, Priority, Retail, Ground, Metro.");
+                + "First, Priority, Retail, Ground, Metro.");
             return;
         }
 

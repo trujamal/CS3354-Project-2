@@ -33,7 +33,7 @@ public class MainApp {
                 + "\t7. Update user info (given their id).\n"
                 + "\t8. Complete a shipping transaction.\n"
                 + "\t9. Show completed shipping transaction.\n"
-                + "\t10. Exit program.\n";
+                + "\t0. Exit program.\n";
 
         System.out.println(welcomeMessage);
 
@@ -143,30 +143,34 @@ public class MainApp {
 
                     break;
                 case '6':
-                    // Show a list of users in the database
+                    // Add new user to the database
 
 
 
                     break;
 
                 case '7':
-                    // Update user info
+                    // Update user info (given their id)
 
 
 
                     break;
 
                 case '8':
-                    // Complete a shipping
+                    // Complete a shipping transaction
 
 
 
                     break;
 
                 case '9':
-                    // Show completed shipping transaction
+                    // Show completed shipping transactions
 
 
+                    break;
+                case '0':
+                    System.out.println("Exiting Program, Thank You!");
+                    System.exit(0);
                     break;
 
                 case 'h':
