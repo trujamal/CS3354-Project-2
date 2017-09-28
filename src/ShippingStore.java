@@ -51,7 +51,11 @@ public class ShippingStore {
             // split values using the space character as separator
             String[] temp = orderScanner.nextLine().split(" ");
 
+
+
+            //
             packageOrderList.add(new PackageOrder(temp[0], temp[1], temp[2]));
+
         }
 
         //Package order list is now in the ArrayList completely so we can close the file
@@ -83,7 +87,7 @@ public class ShippingStore {
             System.out.println(String.format("| %-14s| %-14s| %-14s| %-35s|",
                     orders.get(i).getTrackingNumber(),
                     orders.get(i).getSpecification(),
-                    orders.get(i).getMailingClass()));
+                    orders.get(i).getMailingClass())) ;
         }
         System.out.println(" -------------------------------------------------------------------------------------\n");
 
@@ -157,11 +161,11 @@ public class ShippingStore {
             return;
         }
 
-        if (!(mailingclass.equals("First-Class") || mailingclass.equals("Priority") || mailingclass.equals("Retail")
+        if (!(mailingclass.equals("First") || mailingclass.equals("Priority") || mailingclass.equals("Retail")
             || mailingclass.equals("Ground") || mailingclass.equals("Metro")) ) {
             System.out.println("Invalid Mailing Class:\n"
                 + "Mailing Class must be one of following: "
-                + "First-Class, Priority, Retail, Ground, Metro.");
+                + "First, Priority, Retail, Ground, Metro.");
             return;
         }
 

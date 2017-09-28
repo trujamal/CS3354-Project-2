@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -23,19 +24,10 @@ public class MainApp {
 
         ShippingStore shippingstore = new ShippingStore();
 
-        String welcomeMessage = "\nWelcome to the Shipping Store database. Choose one of the following functions:\n\n"
-                + "\t1. Show all existing package orders in the database (Sorted by tracking number)\n"
-                + "\t2. Add a new package order to the database.\n"
-                + "\t3. Delete a package order from a database.\n"
-                + "\t4. Search for a package order (given its Tracking #).\n"
-                + "\t5. Show a list of users in the database.\n"
-                + "\t6. Add new user to the database.\n"
-                + "\t7. Update user info (given their id).\n"
-                + "\t8. Complete a shipping transaction.\n"
-                + "\t9. Show completed shipping transaction.\n"
-                + "\t10. Exit program.\n";
+        // Displays Menu Options
+        MenuOptions();
 
-        System.out.println(welcomeMessage);
+        // Selection
 
         int selection = in.next().charAt(0);
         in.nextLine();
@@ -143,34 +135,38 @@ public class MainApp {
 
                     break;
                 case '6':
-                    // Show a list of users in the database
+                    // Add new user to the database
 
 
 
                     break;
 
                 case '7':
-                    // Update user info
+                    // Update user info (given their id)
 
 
 
                     break;
 
                 case '8':
-                    // Complete a shipping
+                    // Complete a shipping transaction
 
 
 
                     break;
 
                 case '9':
-                    // Show completed shipping transaction
+                    // Show completed shipping transactions
 
 
                     break;
+                case '0':
+                    System.out.println("Exiting Program, Thank You!");
+                    System.exit(0);
+                    break;
 
                 case 'h':
-                    System.out.println(welcomeMessage);
+                    MenuOptions();
                     break;
                 default:
                     System.out.println("That is not a recognized command. Please enter another command or 'h' to list the commands.");
@@ -189,5 +185,20 @@ public class MainApp {
         
         System.out.println("Done!");
 
+    }
+    public static void MenuOptions()
+    {
+        String welcomeMessage = "\nWelcome to the Shipping Store database. Choose one of the following functions:\n\n"
+                + "\t1. Show all existing package orders in the database (Sorted by tracking number)\n"
+                + "\t2. Add a new package order to the database.\n"
+                + "\t3. Delete a package order from a database.\n"
+                + "\t4. Search for a package order (given its Tracking #).\n"
+                + "\t5. Show a list of users in the database.\n"
+                + "\t6. Add new user to the database.\n"
+                + "\t7. Update user info (given their id).\n"
+                + "\t8. Complete a shipping transaction.\n"
+                + "\t9. Show completed shipping transaction.\n"
+                + "\t10. Exit program.\n";
+        System.out.println(welcomeMessage);
     }
 }
