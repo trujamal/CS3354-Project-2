@@ -52,9 +52,11 @@ public class MainApp {
                             System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
                             mail = in.nextLine();
                             // Creates new envelope object
-                            Envelope env;
-                            int height = env.getHeight(), width = env.getWidth();
+                            Envelope env = new Envelope();
+                            int height = env.getHeight();
+                            int width = env.getWidth();
                             env = new Envelope(trackNum,spec,mail,height,width);
+
                             break;
 
                         case "2":
@@ -65,7 +67,7 @@ public class MainApp {
                             System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
                             mail = in.nextLine();
                             // Creates new box object
-                            Box bx;
+                            Box bx = new Box();
                             int dimension = bx.getlargestDimension(), volume = bx.getvolume();
                             bx = new Box(trackNum,spec,mail,dimension,volume);
                             break;
@@ -79,7 +81,7 @@ public class MainApp {
                             System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
                             mail = in.nextLine();
                             // Creates new crate object
-                            Crate cr;
+                            Crate cr = new Crate();
                             float weight = cr.getWeight();
                             String content = cr.getContent();
                             cr = new Crate(trackNum,spec,mail,weight,content);
@@ -94,7 +96,7 @@ public class MainApp {
                             System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
                             mail = in.nextLine();
                             // Creates new drum object
-                            Drum dr;
+                            Drum dr = new Drum();
                             String material = dr.getMaterial();
                             float diameter = dr.getDiameter();
                             dr = new Drum(trackNum,spec,mail,material,diameter);

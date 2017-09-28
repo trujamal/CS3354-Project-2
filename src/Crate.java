@@ -5,11 +5,7 @@ public class Crate extends PackageOrder {
     private float weight;
     private String content;
 
-    public Crate() {
-        super();
-        weight = 0;
-        content = "N/A";
-    }
+    public Crate() {}
 
     public Crate (String trackingnumber, String specification, String mailingclass, float w, String c) {
         super(trackingnumber, specification, mailingclass);

@@ -4,11 +4,7 @@ public class Drum extends PackageOrder {
     private String material;
     private float diameter;
 
-    public Drum() {
-        super();
-        material = "N/A";
-        diameter = 0;
-    }
+    public Drum() {}
 
     public Drum(String trackingnumber, String specification, String mailingclass, String m, float d) {
         super(trackingnumber, specification, mailingclass);
@@ -20,7 +16,6 @@ public class Drum extends PackageOrder {
         Scanner in = new Scanner(System.in);
         System.out.println("Please enter the material of the Drum: ");
         material = in.nextLine();
-
         return material;
     }
 

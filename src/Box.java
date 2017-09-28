@@ -13,6 +13,9 @@ public class Box extends PackageOrder {
     /***************************************************************************
      * CONSTRUCTORS
      **************************************************************************/
+
+    public Box() {}
+
     /*
       Overloaded Constructor (Initialize to user specified values)
       @param trackingnumber the item's unique trackingnumber.

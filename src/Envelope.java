@@ -10,11 +10,14 @@ public class Envelope extends PackageOrder implements Serializable {
     private int height;      // Holds Envelopes Height in inches
     private int width;      // Holds Envelopes Width in inches
 
-
     /***************************************************************************
      * CONSTRUCTORS
      **************************************************************************/
-    /*
+    public Envelope()
+    {}
+
+
+    /**
       Overloaded Constructor (Initialize to user specified values)
       @param trackingnumber the item's unique trackingnumber.
       @param specification the envelopes Specification .
