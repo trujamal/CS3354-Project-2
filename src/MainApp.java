@@ -169,7 +169,7 @@ public class MainApp {
 
                     break;
                 case '0':
-                    System.out.println("Exiting Program, Thank You!");
+                    System.out.println("Exiting Program, Thank You please work!");
                     System.exit(0);
                     break;
 
