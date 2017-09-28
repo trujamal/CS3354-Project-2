@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -22,20 +23,6 @@ public class MainApp {
         Scanner in = new Scanner(System.in);
 
         ShippingStore shippingstore = new ShippingStore();
-
-        String welcomeMessage = "\nWelcome to the Shipping Store database. Choose one of the following functions:\n\n"
-                + "\t1. Show all existing package orders in the database (Sorted by tracking number)\n"
-                + "\t2. Add a new package order to the database.\n"
-                + "\t3. Delete a package order from a database.\n"
-                + "\t4. Search for a package order (given its Tracking #).\n"
-                + "\t5. Show a list of users in the database.\n"
-                + "\t6. Add new user to the database.\n"
-                + "\t7. Update user info (given their id).\n"
-                + "\t8. Complete a shipping transaction.\n"
-                + "\t9. Show completed shipping transaction.\n"
-                + "\t0. Exit program.\n";
-
-        System.out.println(welcomeMessage);
 
         // Displays Menu Options
         MenuOptions();
@@ -179,7 +166,7 @@ public class MainApp {
                     break;
 
                 case 'h':
-                    System.out.println(welcomeMessage);
+                    MenuOptions();
                     break;
                 default:
                     System.out.println("That is not a recognized command. Please enter another command or 'h' to list the commands.");
