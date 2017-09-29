@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Box extends PackageOrder {
     /***************************************************************************
      * VARIABLE DEFINITIONS
@@ -11,14 +13,9 @@ public class Box extends PackageOrder {
     /***************************************************************************
      * CONSTRUCTORS
      **************************************************************************/
-    /*
-      Default Constructor (Initialize to "0")
-    */
-    public Box(){
-        super();
-        largestDimension = 0;
-        volume = 0;
-    }
+
+    public Box() {}
+
     /*
       Overloaded Constructor (Initialize to user specified values)
       @param trackingnumber the item's unique trackingnumber.
@@ -52,10 +49,16 @@ public class Box extends PackageOrder {
         @return Returns the Box's largestDimension and volume
     */
     public int getlargestDimension() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Please enter the largest dimension of the box: ");
+        largestDimension = Integer.parseInt(in.nextLine());
         return largestDimension;
     }
 
     public int getvolume(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("Please enter the volume of the box: ");
+        volume = Integer.parseInt(in.nextLine());
         return volume;
     }
 

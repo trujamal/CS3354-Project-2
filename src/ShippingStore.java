@@ -51,9 +51,6 @@ public class ShippingStore {
             // split values using the space character as separator
             String[] temp = orderScanner.nextLine().split(" ");
 
-
-
-            //
             packageOrderList.add(new PackageOrder(temp[0], temp[1], temp[2]));
 
         }

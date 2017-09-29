@@ -40,14 +40,17 @@ public class Employee extends User implements Serializable {
      **************************************/
 
     public int getSSN() {
+
         return SSN;
     }
 
     public float getSalary() {
+
         return monthlySalary;
     }
 
     public int getBankNumber() {
+
         return ddbank;
     }
 
