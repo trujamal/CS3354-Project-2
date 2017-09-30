@@ -3,10 +3,16 @@ import java.io.Serializable;
 
 public class Employee extends User implements Serializable {
 
-    // Member Variables
+    /***************************************************************************
+     * VARIABLE DEFINITIONS
+     **************************************************************************/
     private int SSN;
     private float monthlySalary;
     private int ddbank;
+
+    /***************************************************************************
+     * CONSTRUCTORS
+     **************************************************************************/
 
     public Employee(){
         super();
@@ -21,7 +27,9 @@ public class Employee extends User implements Serializable {
         monthlySalary = salary;
         ddbank = bankNum;
     }
-
+    /***************************************************************************
+     * PUBLIC MEMBER METHODS
+     **************************************************************************/
 
    @Override
    public void display() {

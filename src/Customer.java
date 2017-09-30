@@ -7,7 +7,6 @@ public class Customer extends User {
     private String phoneNumber;      // Holds Customers phone number
     private String address;      // Holds Customers address
 
-
     /***************************************************************************
      * CONSTRUCTORS
      **************************************************************************/

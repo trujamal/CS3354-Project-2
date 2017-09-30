@@ -16,7 +16,7 @@ public class Box extends PackageOrder {
 
     public Box() {}
 
-    /*
+    /**
       Overloaded Constructor (Initialize to user specified values)
       @param trackingnumber the item's unique trackingnumber.
       @param specification the Boxes Specification .
@@ -45,7 +45,7 @@ public class Box extends PackageOrder {
     /*************************************
      * Getters
      **************************************/
-    /*
+    /**
         @return Returns the Box's largestDimension and volume
     */
     public int getlargestDimension() {

@@ -2,9 +2,15 @@ import java.util.Scanner;
 
 public class Crate extends PackageOrder {
 
+    /***************************************************************************
+     * VARIABLE DEFINITIONS
+     **************************************************************************/
     private float weight;
     private String content;
 
+    /***************************************************************************
+     * CONSTRUCTORS
+     **************************************************************************/
     public Crate() {}
 
     public Crate (String trackingnumber, String specification, String mailingclass, float w, String c) {
@@ -13,6 +19,9 @@ public class Crate extends PackageOrder {
         content = c;
     }
 
+    /*************************************
+     * Getters
+     **************************************/
     public float getWeight() {
         Scanner in = new Scanner(System.in);
         System.out.println("Please enter the weight of the Crate: ");
