@@ -135,7 +135,17 @@ public class ShippingStore {
             System.out.println("\nSearch did not find a match.\n");
         }
     }
-    
+
+    /**
+     * This method can be used to add a package order in the Arraylist of orders.
+     *
+     * @param trackingnumber a <CODE>String</CODE> that represents the tracking number
+     * of the order that to be added.
+     * @param  specification a <CODE>String</CODE> that represents the specification of
+     * the package added.
+     * @param mailingclass a <CODE>String</CODE> that represents the mailing class for
+     * the package added.
+     */
 
     public void addOrder(String trackingnumber, String specification, String mailingclass) {
 
@@ -171,7 +181,12 @@ public class ShippingStore {
         System.out.println("Package Order has been added.\n");
     }
 
-
+    /**
+     * This method can be used to remove a package order in the Arraylist of orders.
+     *
+     * @param trackingNum a <CODE>String</CODE> that represents the tracking number
+     * of the order that to be removed.
+     */
     public void removeOrder(String trackingNum) {
         int orderID = findPackageOrder(trackingNum);
         if (orderID == -1) {

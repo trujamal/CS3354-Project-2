@@ -9,6 +9,7 @@ import java.util.Scanner;
  * @author Jamal Rasool and Zach Sotak
  */
 public class MainApp {
+
     /**
      * This method will begin the user interface console. Main uses a loop to
      * continue doing commands until the user types '6'. A lot of user input
@@ -20,12 +21,14 @@ public class MainApp {
      */
     public static void main(String[] args) throws Exception {
         Scanner in = new Scanner(System.in);
+
         ShippingStore shippingstore = new ShippingStore();
 
         // Displays Menu Options
         MenuOptions();
 
-        // Selection Input
+        // Selection
+
         int selection = in.next().charAt(0);
         in.nextLine();
 
@@ -33,82 +36,92 @@ public class MainApp {
 
             switch (selection) {
                 case '1':
-                    // Shows Package Orders
                     shippingstore.showPackageOrders();
                     break;
                 case '2':
-                    // Shows options and handles types
-                    String inputType = TypeOptions();
+                    String inputType;
+                    String trackNum = "N/A";
+                    String spec = "N/A";
+                    String mail = "N/A";
 
-                    // Declaring variables
-                    String trackNum = "", spec = "", mail = "";
+                    System.out.println("Please select a package type: ");
+                    System.out.println("1. Envelope \n"
+                            + "2. Box \n"
+                            + "3. Crate \n"
+                            + "4. Drum \n");
+                    inputType = in.nextLine();
 
                     switch(inputType) {
                         case "1":
-                            // Case 1: Envelope
-                            trackNum = TrackingNumPrompt();
+                            int height;
+                            int width;
+                            System.out.println("Please enter the Tracking number: ");
+                            trackNum = in.nextLine();
                             System.out.println("Please enter the Specification (Fragile, Catalogs, Books, Do-not-bend, n/a): ");
                             spec = in.nextLine();
                             System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
                             mail = in.nextLine();
-                            // Creates new envelope object
-                            Envelope env = new Envelope();
-                            int height = env.getHeight();
-                            int width = env.getWidth();
-                            env = new Envelope(trackNum,spec,mail,height,width);
-
+                            System.out.println("Please enter the height of the Envelope: ");
+                            height = Integer.parseInt(in.nextLine());
+                            System.out.println("Please enter the width of the Envelope: ");
+                            width = Integer.parseInt(in.nextLine());
                             break;
 
                         case "2":
-                            // Case 2: Box
-                            trackNum = TrackingNumPrompt();
+                            int dimension;
+                            int volume;
+                            System.out.println("Please enter the Tracking number: ");
+                            trackNum = in.nextLine();
                             System.out.println("Please enter the Specification (Fragile, Catalogs, Books, Do-not-bend, n/a): ");
                             spec = in.nextLine();
                             System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
                             mail = in.nextLine();
-                            // Creates new box object
-                            Box bx = new Box();
-                            int dimension = bx.getlargestDimension(), volume = bx.getvolume();
-                            bx = new Box(trackNum,spec,mail,dimension,volume);
+                            System.out.println("Please enter the largest dimension of the box: ");
+                            dimension = Integer.parseInt(in.nextLine());
+                            System.out.println("Please enter the volume of the box: ");
+                            volume = Integer.parseInt(in.nextLine());
                             break;
 
                         case "3":
-                            // Case 3: Crate
-
-                            trackNum = TrackingNumPrompt();
+                            float weight;
+                            String content;
+                            System.out.println("Please enter the Tracking number: ");
+                            trackNum = in.nextLine();
                             System.out.println("Please enter the Specification (Fragile, Catalogs, Books, Do-not-bend, n/a): ");
                             spec = in.nextLine();
                             System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
                             mail = in.nextLine();
-                            // Creates new crate object
-                            Crate cr = new Crate();
-                            float weight = cr.getWeight();
-                            String content = cr.getContent();
-                            cr = new Crate(trackNum,spec,mail,weight,content);
+                            System.out.println("Please enter the weight of the Crate: ");
+                            weight = Float.parseFloat(in.nextLine());
+                            System.out.println("Please enter the contents of the Crate: ");
+                            content = in.nextLine();
                             break;
 
                         case "4":
-                            // Case 4: Drum
-
-                            trackNum = TrackingNumPrompt();
+                            String material;
+                            float diameter;
+                            System.out.println("Please enter the Tracking number: ");
+                            trackNum = in.nextLine();
                             System.out.println("Please enter the Specification (Fragile, Catalogs, Books, Do-not-bend, n/a): ");
                             spec = in.nextLine();
                             System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
                             mail = in.nextLine();
-                            // Creates new drum object
-                            Drum dr = new Drum();
-                            String material = dr.getMaterial();
-                            float diameter = dr.getDiameter();
-                            dr = new Drum(trackNum,spec,mail,material,diameter);
+                            System.out.println("Please enter the material of the Drum: ");
+                            material = in.nextLine();
+                            System.out.println("Please enter the diameter of the Drum: ");
+                            diameter = Float.parseFloat(in.nextLine());
+
                             break;
                     }
 
-                    shippingstore.addOrder(trackNum,spec,mail);
+                    shippingstore.addOrder(trackNum, spec, mail);
                     break;
                 case '3':
                     shippingstore.showPackageOrders();
-                    String info = TrackingNumPrompt();
-                    shippingstore.removeOrder(info);
+
+                    System.out.println("\nPlease enter the tracking # of the package order to delete from the database.\n");
+                    String orderToDelete = in.nextLine();
+                    shippingstore.removeOrder(orderToDelete);
                     break;
                 case '4':
                     System.out.println("\nEnter the Tracking # of the order you wish to see.\n");
@@ -120,35 +133,24 @@ public class MainApp {
                     // Show a list of users in the database
 
 
-
                     break;
                 case '6':
-                    // Code is something like this
                     // Add new user to the database
-                    System.out.println("Please enter id");
-                    int id =  in.nextInt();
 
-                    System.out.println("Please enter first and last name");
-                    String firstN = in.nextLine(), lastN = in.nextLine();
 
-                    User newUser;
-                    newUser = new User(id,firstN,lastN);
 
                     break;
 
                 case '7':
                     // Update user info (given their id)
-                    System.out.println("Please enter id");
-                    int other =  in.nextInt();
 
-                    User currentUser = null;
-                    if(currentUser.getID() == other)
-                        currentUser.display();
-                    // Something along the lines of that
+
+
                     break;
 
                 case '8':
                     // Complete a shipping transaction
+
 
 
                     break;
@@ -184,10 +186,6 @@ public class MainApp {
         System.out.println("Done!");
 
     }
-
-    /**
-     * MenuOptions Displays the menuoptions in the database
-     */
     public static void MenuOptions()
     {
         String welcomeMessage = "\nWelcome to the Shipping Store database. Choose one of the following functions:\n\n"
@@ -202,27 +200,5 @@ public class MainApp {
                 + "\t9. Show completed shipping transaction.\n"
                 + "\t10. Exit program.\n";
         System.out.println(welcomeMessage);
-    }
-
-    public static String TypeOptions()
-    {
-        Scanner in = new Scanner(System.in);
-
-        System.out.println("Please select a package type: ");
-        System.out.println("1. Envelope \n"
-                + "2. Box \n"
-                + "3. Crate \n"
-                + "4. Drum \n");
-        String inputType = in.nextLine();
-
-        return inputType;
-    }
-
-    public static String TrackingNumPrompt()
-    {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Please enter the Tracking number (5-character alphanumeric):");
-        String trackingNumber = in.nextLine();
-        return trackingNumber;
     }
 }
