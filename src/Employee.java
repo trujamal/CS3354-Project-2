@@ -22,7 +22,9 @@ public class Employee extends User implements Serializable {
     }
 
     public Employee(int id, String firstN, String lastN, int ssn, float salary, int bankNum) {
-        super(id, firstN, lastN);
+        ID = id;
+        firstName = firstN;
+        lastName = lastN;
         SSN = ssn;
         monthlySalary = salary;
         ddbank = bankNum;
@@ -35,30 +37,33 @@ public class Employee extends User implements Serializable {
    public void display() {
        // Display's universal attributes in addition to
        // Customer's specific attributes.
-       super.display();
-       System.out.println("SSN: " + SSN);
-       System.out.println();
-       System.out.println("Monthly Salary: " + monthlySalary);
-       System.out.println();
-       System.out.println("Bank Deposit Number " + ddbank);
+       System.out.println("Employee" + getID() + " " + getFirstName() + " " + getLastName() + " " + getSSN() + " " + getSalary() + " " + getBankNumber());
    }
 
     /*************************************
      * Getters
      **************************************/
+    public int getID() {
+        return ID;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
 
     public int getSSN() {
-
         return SSN;
     }
 
     public float getSalary() {
-
         return monthlySalary;
     }
 
     public int getBankNumber() {
-
         return ddbank;
     }
 

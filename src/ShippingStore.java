@@ -81,8 +81,6 @@ public class ShippingStore {
 
 
     public void addOrder(Package p) {
-
-        //If passed all the checks, add the order to the list
         packageOrderList.add(p);
         System.out.println("Package Order has been added.\n");
     }
