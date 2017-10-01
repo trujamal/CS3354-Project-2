@@ -65,6 +65,9 @@ public class MainApp {
                             height = Integer.parseInt(in.nextLine());
                             System.out.println("Please enter the width of the Envelope: ");
                             width = Integer.parseInt(in.nextLine());
+
+                            Envelope e = new Envelope(trackNum, spec, mail, height, width);
+                            shippingstore.addOrder(e);
                             break;
 
                         case "2":
@@ -80,6 +83,9 @@ public class MainApp {
                             dimension = Integer.parseInt(in.nextLine());
                             System.out.println("Please enter the volume of the box: ");
                             volume = Integer.parseInt(in.nextLine());
+
+                            Box b = new Box(trackNum, spec, mail, dimension, volume);
+                            shippingstore.addOrder(b);
                             break;
 
                         case "3":
@@ -95,6 +101,9 @@ public class MainApp {
                             weight = Float.parseFloat(in.nextLine());
                             System.out.println("Please enter the contents of the Crate: ");
                             content = in.nextLine();
+
+                            Crate c = new Crate(trackNum, spec, mail, weight, content);
+                            shippingstore.addOrder(c);
                             break;
 
                         case "4":
@@ -111,10 +120,11 @@ public class MainApp {
                             System.out.println("Please enter the diameter of the Drum: ");
                             diameter = Float.parseFloat(in.nextLine());
 
+                            Drum d = new Drum(trackNum, spec, mail, material, diameter);
+                            shippingstore.addOrder(d);
                             break;
                     }
 
-                    shippingstore.addOrder(trackNum, spec, mail);
                     break;
                 case '3':
                     shippingstore.showPackageOrders();
@@ -127,7 +137,6 @@ public class MainApp {
                     System.out.println("\nEnter the Tracking # of the order you wish to see.\n");
                     String trackingNum = in.next();
                     in.nextLine();
-                    shippingstore.searchPackageOrder(trackingNum);
                     break;
                 case '5':
                     // Show a list of users in the database
@@ -179,13 +188,11 @@ public class MainApp {
 
             in.nextLine();
         }
-
-        in.close();
-        shippingstore.flush();
         
         System.out.println("Done!");
 
     }
+
     public static void MenuOptions()
     {
         String welcomeMessage = "\nWelcome to the Shipping Store database. Choose one of the following functions:\n\n"

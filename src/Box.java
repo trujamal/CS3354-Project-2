@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Box extends PackageOrder {
+public class Box extends Package {
     /***************************************************************************
      * VARIABLE DEFINITIONS
      **************************************************************************/
@@ -14,20 +14,28 @@ public class Box extends PackageOrder {
      * CONSTRUCTORS
      **************************************************************************/
 
-    public Box() {}
+    public Box() {
+        this.trackingNumber = "N/A";
+        this.speficiation = "N/A";
+        this.mailingClass = "N/A";
+        largestDimension = 0;
+        volume = 0;
+    }
 
     /**
       Overloaded Constructor (Initialize to user specified values)
       @param trackingnumber the item's unique trackingnumber.
-      @param specification the Boxes Specification .
+      @param spec the Boxes Specification .
       @param mailingclass the Boxes mailing class .
-      @param largestDimension the Boxes mailing largestDimension.
-      @param volume the Boxes mailing volume.
+      @param largestDimen the Boxes mailing largestDimension.
+      @param v the Boxes mailing volume.
     */
-    public Box(String trackingnumber, String specification, String mailingclass, int largestDimension, int volume ){
-        super(trackingnumber, specification, mailingclass);
-        this.largestDimension = largestDimension;
-        this.volume = volume;
+    public Box(String trackingnumber, String spec, String mailingclass, int largestDimen, int v){
+        trackingNumber = trackingnumber;
+        speficiation = spec;
+        mailingClass = mailingclass;
+        largestDimension = largestDimen;
+        volume = v;
     }
 
     /***************************************************************************
@@ -36,29 +44,33 @@ public class Box extends PackageOrder {
     @Override
     public void display() {
         // Display's universal attributes in addition to
-        // Box's specific attributes.
-        super.display();
-        System.out.println("largestDimension: " + largestDimension);
-        System.out.println();
-        System.out.println("volume " + volume);
+        // Envelope's specific attributes.
+        System.out.println("Box" + " " + getTrackingNumber() + " " + getSpef()+ " " + getMailingClass() + " " + getlargestDimension() + " " + getVolume());
     }
+
     /*************************************
      * Getters
      **************************************/
     /**
         @return Returns the Box's largestDimension and volume
     */
+    public String getTrackingNumber() {
+        return trackingNumber;
+    }
+
+    public String getSpef() {
+        return speficiation;
+    }
+
+    public String getMailingClass() {
+        return mailingClass;
+    }
+
     public int getlargestDimension() {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Please enter the largest dimension of the box: ");
-        largestDimension = Integer.parseInt(in.nextLine());
         return largestDimension;
     }
 
-    public int getvolume(){
-        Scanner in = new Scanner(System.in);
-        System.out.println("Please enter the volume of the box: ");
-        volume = Integer.parseInt(in.nextLine());
+    public int getVolume(){
         return volume;
     }
 

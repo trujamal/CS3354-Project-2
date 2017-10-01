@@ -6,12 +6,12 @@ public class Transaction {
     
     private int customerID;
     private String trackingNumber;
-    private Date shippingDate;
-    private Date deliveryDate;
+    private int shippingDate;
+    private int deliveryDate;
     private float shippingCost;
     private int employeeID;
 
-    public Transaction(int customerID, String trackingNumber, Date shippingDate, Date deliveryDate, float shippingCost, int employeeID){
+    public Transaction(int customerID, String trackingNumber, int shippingDate, int deliveryDate, float shippingCost, int employeeID){
         this.customerID = customerID;
         this.trackingNumber = trackingNumber;
         this.shippingDate = shippingDate;
@@ -26,7 +26,7 @@ public class Transaction {
     public int getcustomerID(){
         Scanner in = new Scanner(System.in);
         System.out.println("Please enter customer ID number: ");
-        customerID = in.nextLine();
+        customerID = Integer.parseInt(in.nextLine());
         return customerID;
     }
 
@@ -37,31 +37,31 @@ public class Transaction {
         return trackingNumber;
     }
 
-    public Date getshippingDate(){
+    public int getshippingDate(){
         Scanner in = new Scanner(System.in);
         System.out.println("Please enter shipping date: ");
-        shippingDate = in.nextLine();
+        shippingDate = Integer.parseInt(in.nextLine());
         return shippingDate;
     }
 
-    public Date getdeliveryDate(){
+    public int getdeliveryDate(){
         Scanner in = new Scanner(System.in);
         System.out.println("Please enter delivery date: ");
-        deliveryDate = in.nextLine();
+        deliveryDate = Integer.parseInt(in.nextLine());
         return deliveryDate;
     }
 
     public float getshippingCost(){
         Scanner in = new Scanner(System.in);
         System.out.println("Please enter shipping cost: ");
-        shippingCost = in.nextLine();
+        shippingCost = Float.parseFloat(in.nextLine());
         return shippingCost;
     }
 
     public int getemployeeID(){
         Scanner in = new Scanner(System.in);
         System.out.println("Please enter employee ID: ");
-        employeeID = in.nextLine();
+        employeeID = Integer.parseInt(in.nextLine());
         return employeeID;
     }
 

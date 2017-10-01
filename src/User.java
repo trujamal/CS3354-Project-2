@@ -1,27 +1,13 @@
-public class User {
-    private int ID;
-    private String firstName;
-    private String lastName;
+public abstract class User {
+    int ID;
+    String firstName;
+    String lastName;
 
-    public User() {
-        ID = 00000;
-        firstName = "N/A";
-        lastName = "N/A";
-    }
+    public User() {}
 
-    public User(int id, String firstN, String lastN) {
-        ID = id;
-        firstN = firstName;
-        lastN = lastName;
-    }
+    abstract void display();
 
-
-    
-    public void display() {
-        System.out.println(ID + " " + firstName + " " + lastName);
-    }
-
-    public int getID() {return ID;}
-    public String getFirstName() {return firstName;}
-    public String getLastName() {return lastName;}
+    abstract int getID();
+    abstract String getFirstName();
+    abstract String getLastName();
 }

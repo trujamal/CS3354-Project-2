@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Drum extends PackageOrder {
+public class Drum extends Package {
     /***************************************************************************
      * VARIABLE DEFINITIONS
      **************************************************************************/
@@ -9,28 +9,48 @@ public class Drum extends PackageOrder {
     /***************************************************************************
      * CONSTRUCTORS
      **************************************************************************/
-    public Drum() {}
+    public Drum() {
+        this.trackingNumber = "N/A";
+        this.speficiation = "N/A";
+        this.mailingClass = "N/A";
+        material = "N/A";
+        diameter = (float) 0.0;
+    }
 
-    public Drum(String trackingnumber, String specification, String mailingclass, String m, float d) {
-        super(trackingnumber, specification, mailingclass);
+    public Drum(String trackingnumber, String spec, String mailingclass, String m, float d) {
+        trackingNumber = trackingnumber;
+        speficiation = spec;
+        mailingClass = mailingclass;
         material = m;
         diameter = d;
+    }
+
+    public void display() {
+        // Display's universal attributes in addition to
+        // Envelope's specific attributes.
+        System.out.println("Drum" + " " + getTrackingNumber() + " " + getSpef()+ " " + getMailingClass() + " " + getMaterial() + " " + getDiameter());
     }
 
     /*************************************
      * Getters
      **************************************/
+    public String getTrackingNumber() {
+        return trackingNumber;
+    }
+
+    public String getSpef() {
+        return speficiation;
+    }
+
+    public String getMailingClass() {
+        return mailingClass;
+    }
+
     public String getMaterial() {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Please enter the material of the Drum: ");
-        material = in.nextLine();
         return material;
     }
 
     public float getDiameter() {
-        Scanner in = new Scanner(System.in);
-        System.out.println("Please enter the diameter of the Drum: ");
-        diameter = Float.parseFloat(in.nextLine());
         return diameter;
     }
 }

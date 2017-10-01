@@ -4,17 +4,23 @@
  */
 
 public abstract class Package {
-    // Constructor
+    // Constructors
     // Getters
+    String trackingNumber;
+    String speficiation;
+    String mailingClass;
+
+    Package(){}
+
+    abstract String getTrackingNumber();
+    abstract String getSpef();
+    abstract String getMailingClass();
+
+    abstract void display();
+
+
 }
 
-class EnvelopeObject extends Package{}
-
-class CrateObject extends Package {}
-
-class BoxObject extends Package {}
-
-class DrumObject extends Package {}
 
 
 
