@@ -137,6 +137,13 @@ public class MainApp {
                     System.out.println("\nEnter the Tracking # of the order you wish to see.\n");
                     String trackingNum = in.next();
                     in.nextLine();
+
+                    int index = shippingstore.findPackageOrder(trackingNum);
+                    if(index >= 0)
+                        System.out.println("Package was found.");
+                    else
+                        System.out.println("Package was not found.");
+
                     break;
                 case '5':
                     // Show a list of users in the database
