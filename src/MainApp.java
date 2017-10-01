@@ -159,6 +159,59 @@ public class MainApp {
 
                 case '8':
                     // Complete a shipping transaction
+                    int inputNum;
+                    System.out.println("Select transaction type: ");
+                    System.out.println("1. Shipping \n"
+                            + "2. Deliver \n");
+                    inputNum = in.nextInt();
+
+                    while (selection == '1' || selection == '2') {
+
+                        switch (inputNum) {
+                            case '1':
+                                int customerID;
+                                String trackingNumber;
+                                int shippingDate;
+                                int deliveryDate;
+                                float shippingCost;
+                                int employeeID;
+
+                                System.out.println("Please enter customer ID number: ");
+                                customerID = Integer.parseInt(in.nextLine());
+                                System.out.println("Please enter Tracking Number: ");
+                                trackingNumber = in.nextLine();
+                                System.out.println("Please enter shipping date: ");
+                                shippingDate = Integer.parseInt(in.nextLine());
+                                System.out.println("Please enter delivery date: ");
+                                deliveryDate = Integer.parseInt(in.nextLine());
+                                System.out.println("Please enter shipping cost: ");
+                                shippingCost = Integer.parseInt(in.nextLine());
+                                System.out.println("Please enter employee ID: ");
+                                employeeID = Integer.parseInt(in.nextLine());
+
+                                Transaction t = new Transaction(customerID, trackingNumber, shippingDate, deliveryDate, shippingCost, employeeID);
+
+                                break;
+
+                            case '2':
+                                System.out.println("Please enter customer ID number: ");
+                                customerID = Integer.parseInt(in.nextLine());
+                                System.out.println("Please enter Tracking Number: ");
+                                trackingNumber = in.nextLine();
+                                System.out.println("Please enter shipping date: ");
+                                shippingDate = Integer.parseInt(in.nextLine());
+                                System.out.println("Please enter delivery date: ");
+                                deliveryDate = Integer.parseInt(in.nextLine());
+                                System.out.println("Please enter shipping cost: ");
+                                shippingCost = Integer.parseInt(in.nextLine());
+                                System.out.println("Please enter employee ID: ");
+                                employeeID = Integer.parseInt(in.nextLine());
+
+                                Transaction t = new Transaction(customerID, trackingNumber, shippingDate, deliveryDate, shippingCost, employeeID);
+                                break;
+                        }
+                    }
+
 
 
 
