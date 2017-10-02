@@ -36,6 +36,7 @@ public class MainApp {
 
             switch (selection) {
                 case '1':
+                    PrintTable();
                     shippingstore.showPackageOrders();
                     break;
                 case '2':
@@ -214,5 +215,12 @@ public class MainApp {
                 + "\t9. Show completed shipping transaction.\n"
                 + "\t10. Exit program.\n";
         System.out.println(welcomeMessage);
+    }
+
+    public static void PrintTable() {
+        System.out.println("------------------------------------------------------------------------");
+        System.out.format("| %8s | %8s | %13s | %8s | %12s |\n",
+                "TYPE", "TRACKING #","SPECIFICATION", "CLASS", "OTHER DETAILS");
+        System.out.println("------------------------------------------------------------------------");
     }
 }
