@@ -1,3 +1,5 @@
+import com.sun.org.apache.xerces.internal.parsers.IntegratedParserConfiguration;
+
 import java.awt.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -23,26 +25,27 @@ public class MainApp {
         Scanner in = new Scanner(System.in);
 
         ShippingStore shippingstore = new ShippingStore();
+        UserManager usermanager = new UserManager();
 
         // Displays Menu Options
         MenuOptions();
 
         // Selection
 
-        int selection = in.next().charAt(0);
-        in.nextLine();
+        String selection;
+        selection = in.nextLine();
 
-        while (selection != '9') {
+        while (selection != "10") {
 
             switch (selection) {
-                case '1':
+                case "1":
                     shippingstore.showPackageOrders();
                     break;
-                case '2':
+                case "2":
                     String inputType;
-                    String trackNum = "N/A";
-                    String spec = "N/A";
-                    String mail = "N/A";
+                    String trackNum;
+                    String spec;
+                    String mail;
 
                     System.out.println("Please select a package type: ");
                     System.out.println("1. Envelope \n"
@@ -126,14 +129,14 @@ public class MainApp {
                     }
 
                     break;
-                case '3':
+                case "3":
                     shippingstore.showPackageOrders();
 
                     System.out.println("\nPlease enter the tracking # of the package order to delete from the database.\n");
                     String orderToDelete = in.nextLine();
                     shippingstore.removeOrder(orderToDelete);
                     break;
-                case '4':
+                case "4":
                     System.out.println("\nEnter the Tracking # of the order you wish to see.\n");
                     String trackingNum = in.next();
                     in.nextLine();
@@ -145,43 +148,94 @@ public class MainApp {
                         System.out.println("Package was not found.");
 
                     break;
-                case '5':
+                case "5":
                     // Show a list of users in the database
-
+                    usermanager.showUsers();
 
                     break;
-                case '6':
+                case "6":
                     // Add new user to the database
+                    String choice;
+                    int id;
+                    String first;
+                    String last;
 
+                    System.out.println("Please select a User type: ");
+                    System.out.println("1. Customer \n"
+                                     + "2. Employee");
+                    choice = in.nextLine();
+
+                    switch(choice) {
+                        case "1":
+                            String number;
+                            String address;
+
+                            System.out.println("Please enter the Customer's ID: ");
+                            id = Integer.parseInt(in.nextLine());
+                            System.out.println("Please enter the Customer's first name: ");
+                            first = in.nextLine();
+                            System.out.println("Please enter the Customer's last name: ");
+                            last = in.nextLine();
+                            System.out.println("Please enter the Customer's phone number: ");
+                            number = in.nextLine();
+                            System.out.println("Please enter the Customer's address: ");
+                            address = in.nextLine();
+
+                            Customer c = new Customer(id, first, last, number, address);
+                            usermanager.addUser(c);
+                            break;
+
+                        case "2":
+                            int SSN;
+                            float monthS;
+                            int directDeposit;
+
+                            System.out.println("Please enter the Employee's ID: ");
+                            id = Integer.parseInt(in.nextLine());
+                            System.out.println("Please enter the Employee's first name: ");
+                            first = in.nextLine();
+                            System.out.println("Please enter the Employee's last name: ");
+                            last = in.nextLine();
+                            System.out.println("Please enter the Employee's SSN: ");
+                            SSN = Integer.parseInt(in.nextLine());
+                            System.out.println("Please enter the Employee's monthly salary: ");
+                            monthS = Float.parseFloat(in.nextLine());
+                            System.out.println("Please enter the Employee's bank account number: ");
+                            directDeposit = Integer.parseInt(in.nextLine());
+
+                            Employee e = new Employee(id, first, last, SSN, monthS, directDeposit);
+                            usermanager.addUser(e);
+                            break;
+                    }
 
 
                     break;
 
-                case '7':
+                case "7":
                     // Update user info (given their id)
 
 
 
                     break;
 
-                case '8':
+                case "8":
                     // Complete a shipping transaction
 
 
 
                     break;
 
-                case '9':
+                case "9":
                     // Show completed shipping transactions
 
 
                     break;
-                case '0':
+                case "10":
                     System.out.println("Exiting Program, Thank You!");
                     System.exit(0);
                     break;
 
-                case 'h':
+                case "h":
                     MenuOptions();
                     break;
                 default:
@@ -191,9 +245,7 @@ public class MainApp {
             }
 
             System.out.println("Please enter another command or 'h' to list the commands.\n");
-            selection = in.next().charAt(0);
-
-            in.nextLine();
+            selection = in.nextLine();
         }
         
         System.out.println("Done!");
