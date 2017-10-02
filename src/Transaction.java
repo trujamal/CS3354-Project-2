@@ -1,8 +1,12 @@
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
 
-public class Transaction  {
+public class Transaction {
+
+    private ArrayList<Package> transactionList;
+
     
     private int customerID;
     private String trackingNumber;
@@ -11,61 +15,60 @@ public class Transaction  {
     private float shippingCost;
     private int employeeID;
 
-    public Transaction(int customerID, String trackingNumber, int shippingDate, int deliveryDate, float shippingCost, int employeeID){
-        this.customerID = customerID;
-        this.trackingNumber = trackingNumber;
-        this.shippingDate = shippingDate;
-        this.deliveryDate = deliveryDate;
-        this.shippingCost = shippingCost;
-        this.employeeID = employeeID;
+    public Transaction() throws IOException {
+        transactionList = new ArrayList<>();
     }
 
-    /*************************************
-     * Getters
-     **************************************/
+    public Transaction(int customerid, String trackingnumber, int shippingdate, int deliverydate, float shippingcost, int employeeid){
+        customerID = customerid;
+        trackingNumber = trackingnumber;
+        shippingDate = shippingdate;
+        deliveryDate = deliverydate;
+        shippingCost = shippingcost;
+        employeeID = employeeid;
+    }
+
+    public void addTransaction(Package p) {
+        transactionList.add(p);
+        System.out.println("Transaction Order has been added.\n");
+    }
+
+    public void showTransactions() {
+        showTransactionOrders(transactionList);
+    }
+
+    private void showTransactionOrders(ArrayList<Package> orders) {
+        for(int i = 0; i < orders.size(); i++) {
+            orders.get(i).display();
+        }
+    }
+
+
+        /*************************************
+         * Getters
+         **************************************/
     public int getcustomerID(){
-        Scanner in = new Scanner(System.in);
-        System.out.println("Please enter customer ID number: ");
-        customerID = Integer.parseInt(in.nextLine());
         return customerID;
     }
 
     public String getTrackingNumber(){
-        Scanner in = new Scanner(System.in);
-        System.out.println("Please enter Tracking Number: ");
-        trackingNumber = in.nextLine();
         return trackingNumber;
     }
 
     public int getshippingDate(){
-        Scanner in = new Scanner(System.in);
-        System.out.println("Please enter shipping date: ");
-        shippingDate = Integer.parseInt(in.nextLine());
         return shippingDate;
     }
 
     public int getdeliveryDate(){
-        Scanner in = new Scanner(System.in);
-        System.out.println("Please enter delivery date: ");
-        deliveryDate = Integer.parseInt(in.nextLine());
         return deliveryDate;
     }
 
     public float getshippingCost(){
-        Scanner in = new Scanner(System.in);
-        System.out.println("Please enter shipping cost: ");
-        shippingCost = Float.parseFloat(in.nextLine());
         return shippingCost;
     }
 
     public int getemployeeID(){
-        Scanner in = new Scanner(System.in);
-        System.out.println("Please enter employee ID: ");
-        employeeID = Integer.parseInt(in.nextLine());
         return employeeID;
     }
 
-
-    public Transaction() throws IOException {
-    }
 }
