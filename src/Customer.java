@@ -20,11 +20,11 @@ public class Customer extends User {
         phoneNumber = "N/A";
         address = "N/A";
     }
-    /*
+    /**
       Overloaded Constructor (Initialize to user specified values)
-      @param ID the Customers unique ID number.
-      @param firstName the Customers first name.
-      @param lastName the Customers last name.
+      @param id the Customers unique ID number.
+      @param firstN the Customers first name.
+      @param lastN the Customers last name.
       @param phoneNumber the Customers mailing phoneNumber.
       @param address the Customers mailing address.
     */
@@ -49,7 +49,7 @@ public class Customer extends User {
     /*************************************
      * Getters
      **************************************/
-    /*
+    /**
         @return Returns the Customer's phoneNumber and address
     */
     public int getID() {

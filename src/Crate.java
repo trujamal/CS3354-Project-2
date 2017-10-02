@@ -1,3 +1,5 @@
+import static java.lang.System.*;
+
 public class Crate extends Package {
 
     /***************************************************************************
@@ -28,7 +30,9 @@ public class Crate extends Package {
     public void display() {
         // Display's universal attributes in addition to
         // Envelope's specific attributes.
-        System.out.println("Crate" + " " + getTrackingNumber() + " " + getSpef()+ " " + getMailingClass() + " " + getWeight() + " " + getContent());
+        out.printf("| %8s | %8s   | %11s   | %8s | %6s %5.2f  \n %61s %5s \n\n", "Crate", getTrackingNumber(), getSpef()
+                , getMailingClass(), "Weight: ", getWeight(), "  Content: ", getContent());
+
     }
 
 
