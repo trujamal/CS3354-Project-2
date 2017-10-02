@@ -197,8 +197,8 @@ public class MainApp {
                                 System.out.println("Please enter employee ID: ");
                                 employeeID = Integer.parseInt(in.nextLine());
 
-                               Transaction t = new Transaction(customerID, trackingNumber, shippingDate, deliveryDate, shippingCost, employeeID);
-                                transaction.addTransaction(t);
+                               //Transaction t = new Transaction(customerID, trackingNumber, shippingDate, deliveryDate, shippingCost, employeeID);
+                               //transaction.addTransaction(t);
 
                                 break;
 
@@ -216,8 +216,8 @@ public class MainApp {
                                 System.out.println("Please enter employee ID: ");
                                 employeeID = Integer.parseInt(in.nextLine());
 
-                                Transaction t = new Transaction(customerID, trackingNumber, shippingDate, deliveryDate, shippingCost, employeeID);
-                                transaction.addTransaction(t);
+                                //Transaction t = new Transaction(customerID, trackingNumber, shippingDate, deliveryDate, shippingCost, employeeID);
+                                //transaction.addTransaction(t);
 
                                 break;
                         }

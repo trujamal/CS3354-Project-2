@@ -28,8 +28,8 @@ public class Transaction {
         employeeID = employeeid;
     }
 
-    public void addTransaction(Package t) {
-        transactionList.add(t);
+    public void addTransaction(Package p) {
+        transactionList.add(p);
         System.out.println("Transaction Order has been added.\n");
     }
 
