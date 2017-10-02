@@ -13,7 +13,7 @@ public class Crate extends Package {
      **************************************************************************/
     public Crate() {
         this.trackingNumber = "N/A";
-        this.speficiation = "N/A";
+        this.specification = "N/A";
         this.mailingClass = "N/A";
         weight = (float) 0.0;
         content = "N/A";
@@ -21,7 +21,7 @@ public class Crate extends Package {
 
     public Crate (String trackingnumber, String spec, String mailingclass, float w, String c) {
         trackingNumber = trackingnumber;
-        speficiation = spec;
+        specification = spec;
         mailingClass = mailingclass;
         weight = w;
         content = c;
@@ -44,7 +44,7 @@ public class Crate extends Package {
     }
 
     public String getSpef() {
-        return speficiation;
+        return specification;
     }
 
     public String getMailingClass() {

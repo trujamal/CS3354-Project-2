@@ -16,7 +16,7 @@ public class Box extends Package {
 
     public Box() {
         this.trackingNumber = "N/A";
-        this.speficiation = "N/A";
+        this.specification = "N/A";
         this.mailingClass = "N/A";
         largestDimension = 0;
         volume = 0;
@@ -32,7 +32,7 @@ public class Box extends Package {
     */
     public Box(String trackingnumber, String spec, String mailingclass, int largestDimen, int v){
         trackingNumber = trackingnumber;
-        speficiation = spec;
+        specification = spec;
         mailingClass = mailingclass;
         largestDimension = largestDimen;
         volume = v;
@@ -62,9 +62,7 @@ public class Box extends Package {
         return trackingNumber;
     }
 
-    public String getSpef() {
-        return speficiation;
-    }
+    public String getSpef() { return specification; }
 
     public String getMailingClass() {
         return mailingClass;

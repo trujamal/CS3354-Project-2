@@ -35,7 +35,7 @@ public class MainApp {
         String selection;
         selection = in.nextLine();
 
-        while (selection != "10") {
+        while (!selection.equals("10")) {
 
             switch (selection) {
                 case "1":
@@ -198,7 +198,7 @@ public class MainApp {
                             last = in.nextLine();
                             System.out.println("Please enter the Employee's SSN: ");
                             SSN = Integer.parseInt(in.nextLine());
-                            System.out.println("Please enter the Employee's monthly salary: ");
+                            System.out.println("Please enter the Employee's monthly salary(float): ");
                             monthS = Float.parseFloat(in.nextLine());
                             System.out.println("Please enter the Employee's bank account number: ");
                             directDeposit = Integer.parseInt(in.nextLine());
@@ -207,15 +207,11 @@ public class MainApp {
                             usermanager.addUser(e);
                             break;
                     }
-
-
                     break;
 
                 case "7":
                     // Update user info (given their id)
-
-
-
+                    usermanager.updateUser();
                     break;
 
                 case "8":
