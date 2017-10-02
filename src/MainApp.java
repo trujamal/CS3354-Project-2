@@ -173,7 +173,7 @@ public class MainApp {
                             + "2. Deliver \n");
                     inputNum = in.nextInt();
 
-                    while (selection == '1' || selection == '2') {
+                    while (inputNum == '1' || inputNum == '2') {
 
                         switch (inputNum) {
                             case '1':
