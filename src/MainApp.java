@@ -218,7 +218,7 @@ public class MainApp {
 
                     break;
 
-                case '8':
+                case "8":
                     // Complete a shipping transaction
                     int inputNum;
                     System.out.println("Select transaction type: ");
@@ -280,17 +280,17 @@ public class MainApp {
 
                     break;
 
-                case '9':
+                case "9":
                     // Show completed shipping transactions
                     //transaction.showTransactions();
 
                     break;
-                case '0':
+                case "10":
                     System.out.println("Exiting Program, Thank You!");
                     System.exit(0);
                     break;
 
-                case 'h':
+                case "h":
                     MenuOptions();
                     break;
                 default:
@@ -300,9 +300,9 @@ public class MainApp {
             }
 
             System.out.println("Please enter another command or 'h' to list the commands.\n");
-            selection = in.next().charAt(0);
+            selection = in.next();
 
-            in.nextLine();
+
         }
         
         System.out.println("Done!");
