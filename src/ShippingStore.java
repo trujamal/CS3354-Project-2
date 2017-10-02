@@ -20,6 +20,7 @@ public class ShippingStore {
 
     private ArrayList<Package> packageOrderList;
 
+
     /**
      * This constructor is hard-coded to open "<CODE>PackageOrderDB.txt</CODE>" and
      * initialize the <CODE>PackageOrderList</CODE> with its contents. If no such file
@@ -100,5 +101,11 @@ public class ShippingStore {
             System.out.println("\nAction successful. Package order has been removed from the database.\n");
         }
     }
+
+
+    }
 }
+
+
+
 

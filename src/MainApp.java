@@ -23,6 +23,7 @@ public class MainApp {
         Scanner in = new Scanner(System.in);
 
         ShippingStore shippingstore = new ShippingStore();
+        Transaction transaction = new Transaction();
 
         // Displays Menu Options
         MenuOptions();
@@ -196,7 +197,8 @@ public class MainApp {
                                 System.out.println("Please enter employee ID: ");
                                 employeeID = Integer.parseInt(in.nextLine());
 
-                               // Transaction t = new Transaction(customerID, trackingNumber, shippingDate, deliveryDate, shippingCost, employeeID);
+                               Transaction t = new Transaction(customerID, trackingNumber, shippingDate, deliveryDate, shippingCost, employeeID);
+                                transaction.addTransaction(t);
 
                                 break;
 
@@ -214,12 +216,12 @@ public class MainApp {
                                 System.out.println("Please enter employee ID: ");
                                 employeeID = Integer.parseInt(in.nextLine());
 
-                                //Transaction t = new Transaction(customerID, trackingNumber, shippingDate, deliveryDate, shippingCost, employeeID);
+                                Transaction t = new Transaction(customerID, trackingNumber, shippingDate, deliveryDate, shippingCost, employeeID);
+                                transaction.addTransaction(t);
+
                                 break;
                         }
                     }
-
-
 
 
                     break;
