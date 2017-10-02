@@ -1,6 +1,8 @@
 import com.sun.org.apache.xerces.internal.parsers.IntegratedParserConfiguration;
 
 import java.awt.*;
+import java.lang.Package;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -39,6 +41,7 @@ public class MainApp {
 
             switch (selection) {
                 case "1":
+                    PrintTable();
                     shippingstore.showPackageOrders();
                     break;
                 case "2":
@@ -150,6 +153,7 @@ public class MainApp {
                     break;
                 case "5":
                     // Show a list of users in the database
+                    PrintUserTable();
                     usermanager.showUsers();
 
                     break;
@@ -170,8 +174,7 @@ public class MainApp {
                             String number;
                             String address;
 
-                            System.out.println("Please enter the Customer's ID: ");
-                            id = Integer.parseInt(in.nextLine());
+                            id = usermanager.idGen();
                             System.out.println("Please enter the Customer's first name: ");
                             first = in.nextLine();
                             System.out.println("Please enter the Customer's last name: ");
@@ -190,8 +193,7 @@ public class MainApp {
                             float monthS;
                             int directDeposit;
 
-                            System.out.println("Please enter the Employee's ID: ");
-                            id = Integer.parseInt(in.nextLine());
+                            id = usermanager.idGen();
                             System.out.println("Please enter the Employee's first name: ");
                             first = in.nextLine();
                             System.out.println("Please enter the Employee's last name: ");
@@ -265,5 +267,20 @@ public class MainApp {
                 + "\t9. Show completed shipping transaction.\n"
                 + "\t10. Exit program.\n";
         System.out.println(welcomeMessage);
+    }
+
+    public static void PrintTable() {
+        System.out.println("----------------------------------------------------------------------------------");
+        System.out.format("| %10s | %8s | %13s | %8s | %12s         |\n",
+                 "TYPE", "TRACKING #", "SPECIFICATION", "CLASS", "OTHER DETAILS");
+        System.out.println("----------------------------------------------------------------------------------");
+    }
+
+    public static void PrintUserTable() {
+        System.out.println("----------------------------------------------------------------------------------");
+        System.out.format("| %6s   | %8s |   %10s | %10s     | %16s          |\n",
+                "USER", "ID", "FIRST NAME", "LAST NAME", "OTHER DETAILS");
+        System.out.println("----------------------------------------------------------------------------------");
+
     }
 }
