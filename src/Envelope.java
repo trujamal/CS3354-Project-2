@@ -42,10 +42,12 @@ public class Envelope extends Package implements Serializable {
      * PUBLIC MEMBER METHODS
      **************************************************************************/
     public void display() {
-        // Display's universal attributes in addition to
+
+        //Display's universal attributes in addition to
         // Envelope's specific attributes.
-        System.out.println("Envelope" + " " + getTrackingNumber() + " " + getSpef()+ " " + getMailingClass() + " " + getHeight() + " " + getWidth());
-    }
+        System.out.printf("| %8s | %8s   | %11s   | %8s | %6s %5d  \n %60s %5d \n\n", "Envelope", getTrackingNumber(), getSpef()
+                           , getMailingClass(), "Height: ", getHeight(), "  Width: ", getWidth());
+     }
     /*************************************
      * Getters
      **************************************/
