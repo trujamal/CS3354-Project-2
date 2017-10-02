@@ -216,14 +216,13 @@ public class MainApp {
     public static void PrintTable() {
         System.out.println("------------------------------------------------------------------------");
         System.out.format("| %8s | %8s | %13s | %8s | %12s |\n",
-                "TYPE", "TRACKING #", "SPECIFICATION", "CLASS", "OTHER DETAILS");
+                           "TYPE", "TRACKING #", "SPECIFICATION", "CLASS", "OTHER DETAILS");
         System.out.println("------------------------------------------------------------------------");
     }
 
     public static void PrintUserTable() {
         System.out.println("------------------------------------------------------------------------");
-        System.out.format("| %8s | %8s | %13s | %12s |\n",
-                "ID", "FIRST NAME", "LAST NAME", "OTHER DETAILS");
+        System.out.format("| %8s | %8s | %13s | %12s |\n", "ID", "FIRST NAME", "LAST NAME", "OTHER DETAILS");
         System.out.println("------------------------------------------------------------------------");
     }
 }

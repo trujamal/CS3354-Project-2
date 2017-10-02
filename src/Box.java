@@ -46,8 +46,9 @@ public class Box extends Package {
     public void display() {
         // Display's universal attributes in addition to
         // Envelope's specific attributes.
-        System.out.println("Box" + " " + getTrackingNumber() + " " + getSpef()+ " " + getMailingClass() +
-                            "  Dimension: " + getlargestDimension() + "/nVolume: " + getVolume());
+
+        System.out.printf("| %8s | %8s   | %11s   | %8s | %6s %5d  \n %60s %5d \n\n", "Box", getTrackingNumber(), getSpef()
+                       , getMailingClass(), "Dimension: ", getlargestDimension(), "  Volume: ", getVolume());
 
     }
 
