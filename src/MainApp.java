@@ -228,7 +228,7 @@ public class MainApp {
 
                 case '9':
                     // Show completed shipping transactions
-                    transaction.showTransactions();
+                    //transaction.showTransactions();
 
                     break;
                 case '0':
