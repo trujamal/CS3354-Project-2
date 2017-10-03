@@ -249,6 +249,7 @@ public class MainApp {
 
                 case "9":
                     // Show completed shipping transactions
+                    PrintTransactionTable();
                     transaction.showTransactions();
                     break;
 
@@ -303,4 +304,10 @@ public class MainApp {
 
     }
 
+    public static void PrintTransactionTable() {
+        System.out.println("-------------------------------------------------------------------------------------------");
+        System.out.format("| %8s   | %8s  |  %8s  |  %8s  |  %8s   |   %8s   |\n",
+                "CUSTOMER ID", "TRACKING #", "SHIPPING", "DELIVERY", "PRICE", "EMPLOYEE ID");
+        System.out.println("-------------------------------------------------------------------------------------------");
+    }
 }

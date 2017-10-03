@@ -49,6 +49,9 @@ public class Order {
     }
 
     public void display() {
-        System.out.println(customerID + " " + employeeID + " " + trackingNum + " " + shippingCost + " " + shippingDate + " " + deliveryDate);
+       // System.out.println(customerID + " " + employeeID + " " + trackingNum + " " + shippingCost + " " + shippingDate + " " + deliveryDate);
+        System.out.printf("|  %10s     | %10s    | %10s    | %10s     | %10.2f  | %10s|\n\n",
+                          customerID, trackingNum, shippingDate, deliveryDate, shippingCost, employeeID );
+
     }
 }
