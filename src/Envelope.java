@@ -36,7 +36,6 @@ public class Envelope extends Package implements Serializable {
         width = w;
 
     }
-
     /***************************************************************************
      * PUBLIC MEMBER METHODS
      **************************************************************************/

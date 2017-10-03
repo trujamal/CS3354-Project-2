@@ -37,7 +37,6 @@ public class Box extends Package {
         largestDimension = largestDimen;
         volume = v;
     }
-
     /***************************************************************************
      * PUBLIC MEMBER METHODS
      **************************************************************************/
