@@ -29,7 +29,7 @@ public class Drum extends Package {
         // Display's universal attributes in addition to
         // Envelope's specific attributes.
         //System.out.println("Drum" + " " + getTrackingNumber() + " " + getSpef()+ " " + getMailingClass() + " " + getMaterial() + " " + getDiameter());
-          System.out.printf("| %8s | %8s   | %11s   | %8s | %6s %30d  \n %60s %5d \n\n", "Drum", getTrackingNumber(), getSpef()
+          System.out.printf("| %8s   | %8s   | %11s   | %8s |  %6s %5s  \n %64s %5.2f \n\n", "Drum", getTrackingNumber(), getSpef()
                 , getMailingClass(), "Material: ", getMaterial(), "  Diameter: ", getDiameter());
 
     }

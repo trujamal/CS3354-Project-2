@@ -20,7 +20,6 @@ public class Envelope extends Package implements Serializable {
         this.width = 0;
     }
 
-
     /**
       Overloaded Constructor (Initialize to user specified values)
       @param trackingnumber the item's unique trackingnumber.
@@ -45,7 +44,7 @@ public class Envelope extends Package implements Serializable {
 
         //Display's universal attributes in addition to
         // Envelope's specific attributes.
-        System.out.printf("| %8s | %8s   | %11s   | %8s | %6s %5d  \n %60s %5d \n\n", "Envelope", getTrackingNumber(), getSpef()
+        System.out.printf("| %8s   | %8s   | %11s   | %8s |  %6s %5d  \n %62s %5d \n\n", "Envelope", getTrackingNumber(), getSpef()
                            , getMailingClass(), "Height: ", getHeight(), "  Width: ", getWidth());
      }
     /*************************************
