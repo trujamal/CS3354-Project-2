@@ -1,7 +1,4 @@
-import java.io.IOException;
-import java.io.FileReader;
-import java.io.PrintWriter;
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -102,6 +99,20 @@ public class ShippingStore {
         }
     }
 
+    @SuppressWarnings("Duplicates")
+    public void saveInfo()
+    {
+        try {
+            OutputStream f = new FileOutputStream("Users.ser");
+            OutputStream b = new BufferedOutputStream(f);
+            ObjectOutput output = new ObjectOutputStream(b);
+            output.writeObject(packageOrderList);
+
+        } catch (Exception c){
+            System.out.println(c);
+        }
+
+    }
 
 }
 
