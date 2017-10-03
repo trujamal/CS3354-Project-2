@@ -114,10 +114,10 @@ public class UserManager implements Serializable {
         }
     }
 
+    @SuppressWarnings("Duplicates")
     public void saveInfo()
     {
         try {
-                userList.get(0).display();
                 OutputStream file = new FileOutputStream("Users.ser");
                 OutputStream buffer = new BufferedOutputStream(file);
                 ObjectOutput output = new ObjectOutputStream(buffer);
