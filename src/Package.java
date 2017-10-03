@@ -7,7 +7,7 @@ public abstract class Package {
     // Constructors
     // Getters
     String trackingNumber;
-    String speficiation;
+    String specification;
     String mailingClass;
 
     Package(){}

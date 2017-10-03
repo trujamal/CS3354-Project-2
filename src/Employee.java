@@ -68,4 +68,24 @@ public class Employee extends User implements Serializable {
         return ddbank;
     }
 
+    public void setFirst(String first) {
+        firstName = first;
+    }
+
+    public void setLast(String last) {
+        lastName = last;
+    }
+
+    public void setSSN(int ssn) {
+        SSN = ssn;
+    }
+
+    public void setSalary(float salary) {
+        monthlySalary = salary;
+    }
+
+    public void setBank(int bankNum) {
+        ddbank = bankNum;
+    }
+
 }
