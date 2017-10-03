@@ -103,7 +103,7 @@ public class ShippingStore {
     public void saveInfo()
     {
         try {
-            OutputStream f = new FileOutputStream("Users.ser");
+            OutputStream f = new FileOutputStream("ShippingStore.ser");
             OutputStream b = new BufferedOutputStream(f);
             ObjectOutput output = new ObjectOutputStream(b);
             output.writeObject(packageOrderList);

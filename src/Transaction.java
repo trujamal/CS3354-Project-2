@@ -45,7 +45,7 @@ public class Transaction {
     {
         try {
             transactionList.get(0).display();
-            OutputStream f = new FileOutputStream("Users.ser");
+            OutputStream f = new FileOutputStream("Transaction.ser");
             OutputStream b = new BufferedOutputStream(f);
             ObjectOutput output = new ObjectOutputStream(b);
             output.writeObject(transactionList);
