@@ -264,7 +264,7 @@ public class MainApp {
                 + "\t10. Exit program.\n";
         System.out.println(welcomeMessage);
     }
-
+// test
     public static void PrintTable() {
         System.out.println("----------------------------------------------------------------------------------");
         System.out.format("| %10s | %8s | %13s | %8s | %12s         |\n",
