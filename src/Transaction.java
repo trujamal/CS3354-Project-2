@@ -5,31 +5,14 @@ import java.util.Scanner;
 
 public class Transaction {
 
-    private ArrayList<Package> transactionList;
-
-    
-    private int customerID;
-    private String trackingNumber;
-    private int shippingDate;
-    private int deliveryDate;
-    private float shippingCost;
-    private int employeeID;
+    private ArrayList<Order> transactionList;
 
     public Transaction() throws IOException {
         transactionList = new ArrayList<>();
     }
 
-    public Transaction(int customerid, String trackingnumber, int shippingdate, int deliverydate, float shippingcost, int employeeid){
-        customerID = customerid;
-        trackingNumber = trackingnumber;
-        shippingDate = shippingdate;
-        deliveryDate = deliverydate;
-        shippingCost = shippingcost;
-        employeeID = employeeid;
-    }
-
-    public void addTransaction(Package p) {
-        transactionList.add(p);
+    public void addTransaction(Order or) {
+        transactionList.add(or);
         System.out.println("Transaction Order has been added.\n");
     }
 
@@ -37,38 +20,11 @@ public class Transaction {
         showTransactionOrders(transactionList);
     }
 
-    private void showTransactionOrders(ArrayList<Package> orders) {
+    private void showTransactionOrders(ArrayList<Order> orders) {
         for(int i = 0; i < orders.size(); i++) {
             orders.get(i).display();
         }
     }
 
-
-        /*************************************
-         * Getters
-         **************************************/
-    public int getcustomerID(){
-        return customerID;
-    }
-
-    public String getTrackingNumber(){
-        return trackingNumber;
-    }
-
-    public int getshippingDate(){
-        return shippingDate;
-    }
-
-    public int getdeliveryDate(){
-        return deliveryDate;
-    }
-
-    public float getshippingCost(){
-        return shippingCost;
-    }
-
-    public int getemployeeID(){
-        return employeeID;
-    }
 
 }

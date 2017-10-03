@@ -28,6 +28,7 @@ public class MainApp {
 
         ShippingStore shippingstore = new ShippingStore();
         UserManager usermanager = new UserManager();
+        Transaction transaction = new Transaction();
 
         // Displays Menu Options
         MenuOptions();
@@ -218,6 +219,28 @@ public class MainApp {
 
                 case "8":
                     // Complete a shipping transaction
+                    int cID;
+                    int eID;
+                    String tracking;
+                    int cost;
+                    String shippingDate;
+                    String deliveryDate;
+
+                    System.out.println("Please enter the Customer's ID number: ");
+                    cID = Integer.parseInt(in.nextLine());
+                    System.out.println("Please enter the Employee's ID number: ");
+                    eID = Integer.parseInt(in.nextLine());
+                    System.out.println("Please enter the package tracking number: ");
+                    tracking = in.nextLine();
+                    System.out.println("Please enter the price of shipping the package: ");
+                    cost = Integer.parseInt(in.nextLine());
+                    System.out.println("Please enter the date the package will be shipped: ");
+                    shippingDate = in.nextLine();
+                    System.out.println("Please enter the date the package will be delivered: ");
+                    deliveryDate = in.nextLine();
+
+                    Order o = new Order(cID, eID, tracking, cost, shippingDate, deliveryDate);
+                    transaction.addTransaction(o);
 
 
 
@@ -264,7 +287,7 @@ public class MainApp {
                 + "\t10. Exit program.\n";
         System.out.println(welcomeMessage);
     }
-// test
+
     public static void PrintTable() {
         System.out.println("----------------------------------------------------------------------------------");
         System.out.format("| %10s | %8s | %13s | %8s | %12s         |\n",
