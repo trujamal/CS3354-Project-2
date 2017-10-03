@@ -4,6 +4,7 @@ import java.awt.*;
 import java.lang.Package;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+
 import java.util.Scanner;
 
 /**
@@ -57,7 +58,7 @@ public class MainApp {
                             + "4. Drum \n");
                     inputType = in.nextLine();
 
-                    switch(inputType) {
+                    switch (inputType) {
                         case "1":
                             int height;
                             int width;
@@ -145,7 +146,7 @@ public class MainApp {
                     in.nextLine();
 
                     int index = shippingstore.findPackageOrder(trackingNum);
-                    if(index >= 0)
+                    if (index >= 0)
                         System.out.println("Package was found.");
                     else
                         System.out.println("Package was not found.");
@@ -166,10 +167,10 @@ public class MainApp {
 
                     System.out.println("Please select a User type: ");
                     System.out.println("1. Customer \n"
-                                     + "2. Employee");
+                            + "2. Employee");
                     choice = in.nextLine();
 
-                    switch(choice) {
+                    switch (choice) {
                         case "1":
                             String number;
                             String address;
@@ -220,12 +221,11 @@ public class MainApp {
                     // Complete a shipping transaction
 
 
-
                     break;
 
                 case "9":
                     // Show completed shipping transactions
-
+                    PrintTransactionTable();
 
                     break;
                 case "10":
@@ -245,12 +245,11 @@ public class MainApp {
             System.out.println("Please enter another command or 'h' to list the commands.\n");
             selection = in.nextLine();
         }
-        
+
         System.out.println("Done!");
     }
 
-    public static void MenuOptions()
-    {
+    public static void MenuOptions() {
         String welcomeMessage = "\nWelcome to the Shipping Store database. Choose one of the following functions:\n\n"
                 + "\t1. Show all existing package orders in the database (Sorted by tracking number)\n"
                 + "\t2. Add a new package order to the database.\n"
@@ -264,11 +263,12 @@ public class MainApp {
                 + "\t10. Exit program.\n";
         System.out.println(welcomeMessage);
     }
-// test
+
+    // test
     public static void PrintTable() {
         System.out.println("----------------------------------------------------------------------------------");
         System.out.format("| %10s | %8s | %13s | %8s | %12s         |\n",
-                 "TYPE", "TRACKING #", "SPECIFICATION", "CLASS", "OTHER DETAILS");
+                "TYPE", "TRACKING #", "SPECIFICATION", "CLASS", "OTHER DETAILS");
         System.out.println("----------------------------------------------------------------------------------");
     }
 
@@ -276,6 +276,14 @@ public class MainApp {
         System.out.println("----------------------------------------------------------------------------------");
         System.out.format("| %6s   | %8s |   %10s | %10s     | %16s          |\n",
                 "USER", "ID", "FIRST NAME", "LAST NAME", "OTHER DETAILS");
+        System.out.println("----------------------------------------------------------------------------------");
+
+    }
+
+    public static void PrintTransactionTable() {
+        System.out.println("----------------------------------------------------------------------------------");
+        System.out.format("| %6s   | %8s |   %10s | %10s     | %16s          | %16s          |\n",
+                "CUSTOMER ID", "TRACKING #", "SHIPPING DATE", "DELIVERY DATE", "PRICE", "COMPLETED BY");
         System.out.println("----------------------------------------------------------------------------------");
 
     }
