@@ -14,6 +14,9 @@ public class Employee extends User implements Serializable {
      * CONSTRUCTORS
      **************************************************************************/
 
+    /**
+     *
+     */
     public Employee(){
         super();
         SSN = 0000000;
@@ -21,6 +24,15 @@ public class Employee extends User implements Serializable {
         ddbank = 0;
     }
 
+    /**
+     *Overloaded Constructor (Initialize to user specified values)
+     * @param id employees unique ID number
+     * @param firstN first name of the employee
+     * @param lastN last name of the employee
+     * @param ssn Social Security Number of the employee
+     * @param salary Salary of the employee
+     * @param bankNum Bank account number of the employee
+     */
     public Employee(int id, String firstN, String lastN, int ssn, float salary, int bankNum) {
         ID = id;
         firstName = firstN;
@@ -32,17 +44,18 @@ public class Employee extends User implements Serializable {
     /***************************************************************************
      * PUBLIC MEMBER METHODS
      **************************************************************************/
-
+    /**
+     *  This function Display's universal attributes in addition to
+     *  Customer's specific attributes.
+     */
    @Override
    public void display() {
-       // Display's universal attributes in addition to
-       // Customer's specific attributes.
        System.out.printf("| %8s | %8s | %8s     | %10s     |%3s %5s  \n %62s %5.2f \n %70s %5s \n", "Employee", getID(), getFirstName()
                , getLastName(), "SSN: ", getSSN(), "  Salary: ", getSalary(), "  Bank Account #: ", getBankNumber());
    }
 
     /*************************************
-     * Getters
+     * Setters and Getters
      **************************************/
     public int getID() {
         return ID;
