@@ -264,10 +264,14 @@ public class MainApp {
                     break;
 
             }
-            usermanager.saveInfo();
+
+
             System.out.println("Please enter another command or 'h' to list the commands.\n");
             selection = in.nextLine();
         }
+        usermanager.saveInfo();
+        transaction.saveInfo();
+        shippingstore.saveInfo();
         System.out.println("Exiting Program, Thank You!");
         System.out.println("Done!");
     }

@@ -5,7 +5,7 @@ import java.util.Scanner;
 import java.util.logging.*;
 import java.io.*;
 
-public class UserManager {
+public class UserManager implements Serializable {
 
     private ArrayList<User> userList;
 

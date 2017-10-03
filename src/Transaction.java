@@ -1,4 +1,4 @@
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -26,6 +26,21 @@ public class Transaction {
         for(int i = 0; i < orders.size(); i++) {
             orders.get(i).display();
         }
+    }
+    @SuppressWarnings("Duplicates")
+    public void saveInfo()
+    {
+        try {
+            transactionList.get(0).display();
+            OutputStream f = new FileOutputStream("Users.ser");
+            OutputStream b = new BufferedOutputStream(f);
+            ObjectOutput output = new ObjectOutputStream(b);
+            output.writeObject(transactionList);
+
+        } catch (Exception c){
+            System.out.println(c);
+        }
+
     }
 
 
