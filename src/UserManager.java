@@ -1,8 +1,8 @@
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
-
+import java.util.*;
+import java.util.logging.*;
 
 public class UserManager {
 
@@ -61,9 +61,23 @@ public class UserManager {
         else
             System.out.println("User was not found.");
         System.out.println("What do you want to change?");
-
-// Update please
     }
 
+    public void saveInfo(ArrayList<User> users)
+    {
+        try (OutputStream file = new FileOutputStream("Users.ser")) {
+            try (OutputStream buffer = new BufferedOutputStream(file)) {
+                try (ObjectOutput output = new ObjectOutputStream(buffer)) {
+                    output.writeObject(users);
+                }
+            }
+        } catch (IOException ex) {
+            fLogger.log(Level.SEVERE, "Cannot perform output.", ex);
+        }
+
+    }
+
+    private static final Logger fLogger =
+            Logger.getLogger(UserManager.class.getPackage().getName());
 }
 

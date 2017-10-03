@@ -33,7 +33,6 @@ public class MainApp {
         MenuOptions();
 
         // Selection
-
         String selection;
         selection = in.nextLine();
 
@@ -220,7 +219,6 @@ public class MainApp {
                     // Complete a shipping transaction
 
 
-
                     break;
 
                 case "9":
@@ -230,6 +228,7 @@ public class MainApp {
                     break;
                 case "10":
                     System.out.println("Exiting Program, Thank You!");
+
                     System.exit(0);
                     break;
 
