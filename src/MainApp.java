@@ -244,6 +244,7 @@ public class MainApp {
                     Order o = new Order(cID, eID, tracking, cost, shippingDate, deliveryDate);
                     transaction.addTransaction(o);
 
+                    shippingstore.removeOrder(tracking);
 
                     break;
 
@@ -304,6 +305,12 @@ public class MainApp {
         System.out.println("----------------------------------------------------------------------------------");
 
     }
+
+    /**
+     * That date class
+     * @return
+     * @throws ParseException
+     */
     public String dateclass() throws ParseException {
         long value = System.currentTimeMillis()/100;
         SimpleDateFormat originalFormat = new SimpleDateFormat("yyyyMMdd");

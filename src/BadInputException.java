@@ -12,17 +12,15 @@ public class BadInputException extends Exception {
         super(s);
     }
 
+    public BadInputException(Throwable cause) {
+        super (cause);
+    }
+
 
     public BadInputException(String message, Throwable throwable) {
         super(message, throwable);
     }
 
-    void forInputString(String s) {
-        System.out.println("For input string: \"" + s + "\"");
-    }
 
-    public String getMessage() {
-        return super.getMessage();
-    }
 }
 
