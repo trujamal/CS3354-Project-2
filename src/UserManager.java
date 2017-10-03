@@ -50,7 +50,7 @@ public class UserManager {
         int searchID;
         int index;
         String option;
-
+// Bannana
         Scanner in = new Scanner(System.in);
         System.out.println("Please enter the user's ID that you wish to update/change: ");
         searchID = Integer.parseInt(in.nextLine());
