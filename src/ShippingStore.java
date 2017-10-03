@@ -94,16 +94,16 @@ public class ShippingStore {
      */
     public void removeOrder(String trackingNum) {
         int orderID = findPackageOrder(trackingNum);
-        if (orderID == -1) {
+        if (orderID == -1)
             System.out.println("\nAction failed. No package order with the given tracking # exist in database.\n");
-        } else {
+        else {
             packageOrderList.remove(orderID);
             System.out.println("\nAction successful. Package order has been removed from the database.\n");
         }
     }
 
 
-    }
+}
 
 
 

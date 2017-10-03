@@ -74,5 +74,22 @@ public class Customer extends User {
         return address;
     }
 
+    public void setFirst(String first) {
+        firstName = first;
+    }
+
+    public void setLast(String last) {
+        lastName = last;
+    }
+
+    public void setPhone(String phoneNum) {
+        phoneNumber = phoneNum;
+    }
+
+    public void setAddress(String addr) {
+        address = addr;
+    }
+
+
 
 }

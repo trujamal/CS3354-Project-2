@@ -11,7 +11,7 @@ public class Drum extends Package {
      **************************************************************************/
     public Drum() {
         this.trackingNumber = "N/A";
-        this.speficiation = "N/A";
+        this.specification = "N/A";
         this.mailingClass = "N/A";
         material = "N/A";
         diameter = (float) 0.0;
@@ -19,7 +19,7 @@ public class Drum extends Package {
 
     public Drum(String trackingnumber, String spec, String mailingclass, String m, float d) {
         trackingNumber = trackingnumber;
-        speficiation = spec;
+        specification = spec;
         mailingClass = mailingclass;
         material = m;
         diameter = d;
@@ -44,7 +44,7 @@ public class Drum extends Package {
     }
 
     public String getSpef() {
-        return speficiation;
+        return specification;
     }
 
     public String getMailingClass() {

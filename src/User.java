@@ -10,4 +10,7 @@ public abstract class User {
     abstract int getID();
     abstract String getFirstName();
     abstract String getLastName();
+
+    abstract void setFirst(String first);
+    abstract void setLast(String last);
 }

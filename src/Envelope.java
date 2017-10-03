@@ -14,7 +14,7 @@ public class Envelope extends Package implements Serializable {
      **************************************************************************/
     public Envelope() {
         this.trackingNumber = "N/A";
-        this.speficiation = "N/A";
+        this.specification = "N/A";
         this.mailingClass = "N/A";
         this.height = 0;
         this.width = 0;
@@ -31,7 +31,7 @@ public class Envelope extends Package implements Serializable {
     */
     public Envelope(String trackingnumber, String spec, String mailingclass, int h, int w){
         trackingNumber = trackingnumber;
-        speficiation = spec;
+        specification = spec;
         mailingClass = mailingclass;
         height = h;
         width = w;
@@ -59,7 +59,7 @@ public class Envelope extends Package implements Serializable {
     }
 
     public String getSpef() {
-        return speficiation;
+        return specification;
     }
 
     public String getMailingClass() {
