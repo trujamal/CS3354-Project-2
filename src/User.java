@@ -13,4 +13,12 @@ public abstract class User {
 
     abstract void setFirst(String first);
     abstract void setLast(String last);
+
+    abstract void setPhone(String phoneNum);
+    abstract void setAddress(String addr);
+
+    abstract void setSSN(int ssn);
+    abstract void setSalary(float salary);
+    abstract void setBank(int bankNum);
+
 }

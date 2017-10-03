@@ -90,6 +90,12 @@ public class Customer extends User {
         address = addr;
     }
 
+    public void setSSN(int ssn) { }
+
+    public void setSalary(float salary) { }
+
+    public void setBank(int bankNum) { }
+
 
 
 }
