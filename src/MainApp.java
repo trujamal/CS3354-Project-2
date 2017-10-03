@@ -243,19 +243,16 @@ public class MainApp {
 
                     Order o = new Order(cID, eID, tracking, cost, shippingDate, deliveryDate);
                     transaction.addTransaction(o);
-
                     shippingstore.removeOrder(tracking);
 
                     break;
 
                 case "9":
                     // Show completed shipping transactions
-
-
+                    transaction.showTransactions();
                     break;
+
                 case "10":
-                    System.out.println("Exiting Program, Thank You!");
-                    usermanager.saveInfo();
                     System.exit(0);
                     break;
 
@@ -267,11 +264,11 @@ public class MainApp {
                     break;
 
             }
-
+            usermanager.saveInfo();
             System.out.println("Please enter another command or 'h' to list the commands.\n");
             selection = in.nextLine();
         }
-        
+        System.out.println("Exiting Program, Thank You!");
         System.out.println("Done!");
     }
 
@@ -306,15 +303,4 @@ public class MainApp {
 
     }
 
-    /**
-     * That date class
-     * @return
-     * @throws ParseException
-     */
-    public String dateclass() throws ParseException {
-        long value = System.currentTimeMillis()/100;
-        SimpleDateFormat originalFormat = new SimpleDateFormat("yyyyMMdd");
-        Date date = originalFormat.parse(String.valueOf(value));
-        return String.valueOf(date);
-    }
 }

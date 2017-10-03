@@ -116,15 +116,15 @@ public class UserManager {
 
     public void saveInfo()
     {
-        try (
-                // New Mixtape
+        try {
+                userList.get(0).display();
                 OutputStream file = new FileOutputStream("Users.ser");
                 OutputStream buffer = new BufferedOutputStream(file);
                 ObjectOutput output = new ObjectOutputStream(buffer);
-        ){
-            output.writeObject(userList);
-        } catch (Exception b) {
+                output.writeObject(userList);
 
+        } catch (Exception b){
+            System.out.println(b);
         }
 
     }
