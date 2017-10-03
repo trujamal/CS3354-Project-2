@@ -128,7 +128,7 @@ public class UserManager {
         }
 
     }
-
+// Updating information
     private static final Logger fLogger =
             Logger.getLogger(UserManager.class.getPackage().getName());
 }
