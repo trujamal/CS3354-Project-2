@@ -88,4 +88,8 @@ public class Employee extends User implements Serializable {
         ddbank = bankNum;
     }
 
+    public void setPhone(String phoneNum) { }
+
+    public void setAddress(String addr) { }
+
 }

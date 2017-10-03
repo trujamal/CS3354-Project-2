@@ -49,7 +49,8 @@ public class UserManager {
     public void updateUser() {
         int searchID;
         int index;
-
+        String option;
+// Bannana
         Scanner in = new Scanner(System.in);
         System.out.println("Please enter the user's ID that you wish to update/change: ");
         searchID = Integer.parseInt(in.nextLine());
@@ -60,9 +61,62 @@ public class UserManager {
         }
         else
             System.out.println("User was not found.");
-        System.out.println("What do you want to change?");
 
-// Update please
+        System.out.println("Please select the type of User you want to update/change: ");
+        System.out.println("1. Customer \n"
+                         + "2. Employee");
+
+        option = in.nextLine();
+        switch(option) {
+            case "1":
+                String first;
+                String last;
+                String number;
+                String addr;
+
+                System.out.println("Please enter the new first name: ");
+                first = in.nextLine();
+                userList.get(index).setFirst(first);
+                System.out.println("Please enter the new last name: ");
+                last = in.nextLine();
+                userList.get(index).setLast(last);
+                System.out.println("Please enter the Customer's new phone number: ");
+                number = in.nextLine();
+                userList.get(index).setPhone(number);
+                System.out.println("Please enter the Customer's new address: ");
+                addr = in.nextLine();
+                userList.get(index).setAddress(addr);
+
+                System.out.println("Customer's information has been updated.");
+                userList.get(index).display();
+                break;
+
+            case "2":
+                float salary;
+                int bankNum;
+
+                System.out.println("Please enter the Employee's new first name: ");
+                first = in.nextLine();
+                userList.get(index).setFirst(first);
+                System.out.println("Please enter the Employee's new last name: ");
+                last = in.nextLine();
+                userList.get(index).setLast(last);
+                System.out.println("Please enter the Employee's new monthly salary (float):");
+                salary = Float.parseFloat(in.nextLine());
+                userList.get(index).setSalary(salary);
+                System.out.println("Please enter the Employee's new bank account number: ");
+                bankNum = Integer.parseInt(in.nextLine());
+                userList.get(index).setBank(bankNum);
+
+                System.out.println("Employee's information has been updated.");
+                userList.get(index).display();
+                break;
+        }
+
+
+
+
+
     }
 
 }
