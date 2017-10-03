@@ -51,7 +51,6 @@ public class UserManager {
         int searchID;
         int index;
         String option;
-// Bannana
         Scanner in = new Scanner(System.in);
         System.out.println("Please enter the user's ID that you wish to update/change: ");
         searchID = Integer.parseInt(in.nextLine());
@@ -115,22 +114,19 @@ public class UserManager {
         }
     }
 
-    public void saveInfo(ArrayList<User> users)
+    public void saveInfo()
     {
-        try (OutputStream file = new FileOutputStream("Users.ser")) {
-            try (OutputStream buffer = new BufferedOutputStream(file)) {
-                try (ObjectOutput output = new ObjectOutputStream(buffer)) {
-                    output.writeObject(users);
-                }
-            }
-        } catch (IOException ex) {
-            fLogger.log(Level.SEVERE, "Cannot perform output.", ex);
+        try (
+                OutputStream file = new FileOutputStream("Users.ser");
+                OutputStream buffer = new BufferedOutputStream(file);
+                ObjectOutput output = new ObjectOutputStream(buffer);
+        ){
+            output.writeObject(userList);
+        } catch (Exception b) {
+
         }
 
     }
-// Updating information
-    private static final Logger fLogger =
-            Logger.getLogger(UserManager.class.getPackage().getName());
 }
 
 

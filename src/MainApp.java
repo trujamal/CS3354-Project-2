@@ -2,7 +2,10 @@ import com.sun.org.apache.xerces.internal.parsers.IntegratedParserConfiguration;
 
 import java.awt.*;
 import java.lang.Package;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -228,7 +231,7 @@ public class MainApp {
                     break;
                 case "10":
                     System.out.println("Exiting Program, Thank You!");
-
+                    usermanager.saveInfo();
                     System.exit(0);
                     break;
 
@@ -277,5 +280,11 @@ public class MainApp {
                 "USER", "ID", "FIRST NAME", "LAST NAME", "OTHER DETAILS");
         System.out.println("----------------------------------------------------------------------------------");
 
+    }
+    public String dateclass() throws ParseException {
+        long value = System.currentTimeMillis()/100;
+        SimpleDateFormat originalFormat = new SimpleDateFormat("yyyyMMdd");
+        Date date = originalFormat.parse(String.valueOf(value));
+        return String.valueOf(date);
     }
 }
