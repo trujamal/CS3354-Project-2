@@ -37,7 +37,7 @@ public class Employee extends User implements Serializable {
    public void display() {
        // Display's universal attributes in addition to
        // Customer's specific attributes.
-       System.out.printf("| %8s   | %8s   | %11s     | %10s    | %6s %5s  \n %61s %5.2f \n %67s %5s \n", "Employee", getID(), getFirstName()
+       System.out.printf("| %8s | %8s | %8s     | %10s     |%3s %5s  \n %62s %5.2f \n %70s %5s \n", "Employee", getID(), getFirstName()
                , getLastName(), "SSN: ", getSSN(), "  Salary: ", getSalary(), "  Bank Account #: ", getBankNumber());
    }
 
