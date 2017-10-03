@@ -2,7 +2,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
-
+import java.util.logging.*;
+import java.io.*;
 
 public class UserManager {
 
@@ -50,7 +51,6 @@ public class UserManager {
         int searchID;
         int index;
         String option;
-
         Scanner in = new Scanner(System.in);
         System.out.println("Please enter the user's ID that you wish to update/change: ");
         searchID = Integer.parseInt(in.nextLine());
@@ -64,7 +64,7 @@ public class UserManager {
 
         System.out.println("Please select the type of User you want to update/change: ");
         System.out.println("1. Customer \n"
-                         + "2. Employee");
+                + "2. Employee");
 
         option = in.nextLine();
         switch(option) {
@@ -112,12 +112,23 @@ public class UserManager {
                 userList.get(index).display();
                 break;
         }
-
-
-
-
-
     }
 
+    public void saveInfo()
+    {
+        try {
+                userList.get(0).display();
+                OutputStream file = new FileOutputStream("Users.ser");
+                OutputStream buffer = new BufferedOutputStream(file);
+                ObjectOutput output = new ObjectOutputStream(buffer);
+                output.writeObject(userList);
+
+        } catch (Exception b){
+            System.out.println(b);
+        }
+
+    }
 }
+
+
 

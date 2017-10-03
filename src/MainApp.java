@@ -2,9 +2,11 @@ import com.sun.org.apache.xerces.internal.parsers.IntegratedParserConfiguration;
 
 import java.awt.*;
 import java.lang.Package;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.InputMismatchException;
-
 import java.util.Scanner;
 
 /**
@@ -29,12 +31,12 @@ public class MainApp {
 
         ShippingStore shippingstore = new ShippingStore();
         UserManager usermanager = new UserManager();
+        Transaction transaction = new Transaction();
 
         // Displays Menu Options
         MenuOptions();
 
         // Selection
-
         String selection;
         selection = in.nextLine();
 
@@ -58,7 +60,7 @@ public class MainApp {
                             + "4. Drum \n");
                     inputType = in.nextLine();
 
-                    switch (inputType) {
+                    switch(inputType) {
                         case "1":
                             int height;
                             int width;
@@ -146,7 +148,7 @@ public class MainApp {
                     in.nextLine();
 
                     int index = shippingstore.findPackageOrder(trackingNum);
-                    if (index >= 0)
+                    if(index >= 0)
                         System.out.println("Package was found.");
                     else
                         System.out.println("Package was not found.");
@@ -167,10 +169,10 @@ public class MainApp {
 
                     System.out.println("Please select a User type: ");
                     System.out.println("1. Customer \n"
-                            + "2. Employee");
+                                     + "2. Employee");
                     choice = in.nextLine();
 
-                    switch (choice) {
+                    switch(choice) {
                         case "1":
                             String number;
                             String address;
@@ -219,17 +221,38 @@ public class MainApp {
 
                 case "8":
                     // Complete a shipping transaction
+                    int cID;
+                    int eID;
+                    String tracking;
+                    int cost;
+                    String shippingDate;
+                    String deliveryDate;
 
+                    System.out.println("Please enter the Customer's ID number: ");
+                    cID = Integer.parseInt(in.nextLine());
+                    System.out.println("Please enter the Employee's ID number: ");
+                    eID = Integer.parseInt(in.nextLine());
+                    System.out.println("Please enter the package tracking number: ");
+                    tracking = in.nextLine();
+                    System.out.println("Please enter the price of shipping the package: ");
+                    cost = Integer.parseInt(in.nextLine());
+                    System.out.println("Please enter the date the package will be shipped: ");
+                    shippingDate = in.nextLine();
+                    System.out.println("Please enter the date the package will be delivered: ");
+                    deliveryDate = in.nextLine();
+
+                    Order o = new Order(cID, eID, tracking, cost, shippingDate, deliveryDate);
+                    transaction.addTransaction(o);
+                    shippingstore.removeOrder(tracking);
 
                     break;
 
                 case "9":
                     // Show completed shipping transactions
-                    PrintTransactionTable();
-
+                    transaction.showTransactions();
                     break;
+
                 case "10":
-                    System.out.println("Exiting Program, Thank You!");
                     System.exit(0);
                     break;
 
@@ -241,15 +264,16 @@ public class MainApp {
                     break;
 
             }
-
+            usermanager.saveInfo();
             System.out.println("Please enter another command or 'h' to list the commands.\n");
             selection = in.nextLine();
         }
-
+        System.out.println("Exiting Program, Thank You!");
         System.out.println("Done!");
     }
 
-    public static void MenuOptions() {
+    public static void MenuOptions()
+    {
         String welcomeMessage = "\nWelcome to the Shipping Store database. Choose one of the following functions:\n\n"
                 + "\t1. Show all existing package orders in the database (Sorted by tracking number)\n"
                 + "\t2. Add a new package order to the database.\n"
@@ -264,11 +288,10 @@ public class MainApp {
         System.out.println(welcomeMessage);
     }
 
-    // test
     public static void PrintTable() {
         System.out.println("----------------------------------------------------------------------------------");
         System.out.format("| %10s | %8s | %13s | %8s | %12s         |\n",
-                "TYPE", "TRACKING #", "SPECIFICATION", "CLASS", "OTHER DETAILS");
+                 "TYPE", "TRACKING #", "SPECIFICATION", "CLASS", "OTHER DETAILS");
         System.out.println("----------------------------------------------------------------------------------");
     }
 
@@ -280,11 +303,4 @@ public class MainApp {
 
     }
 
-    public static void PrintTransactionTable() {
-        System.out.println("----------------------------------------------------------------------------------");
-        System.out.format("| %6s   | %8s |   %10s | %10s     | %16s          | %16s          |\n",
-                "CUSTOMER ID", "TRACKING #", "SHIPPING DATE", "DELIVERY DATE", "PRICE", "COMPLETED BY");
-        System.out.println("----------------------------------------------------------------------------------");
-
-    }
 }
