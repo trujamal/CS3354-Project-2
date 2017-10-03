@@ -10,7 +10,7 @@ public class Customer extends User {
     /***************************************************************************
      * CONSTRUCTORS
      **************************************************************************/
-    /*
+    /**
       Default Constructor (Initialize to "0")
     */
     public Customer(){
@@ -20,6 +20,7 @@ public class Customer extends User {
         phoneNumber = "N/A";
         address = "N/A";
     }
+
     /**
       Overloaded Constructor (Initialize to user specified values)
       @param id the Customers unique ID number.
@@ -40,6 +41,12 @@ public class Customer extends User {
     /***************************************************************************
      * PUBLIC MEMBER METHODS
      **************************************************************************/
+    /**
+     * Returns a string representation, used to display the record in a table.
+     * It is a formatted, columned list of its attributes
+     *
+     * @return representation for table entry
+     */
     @Override
     public void display() {
         // Display's universal attributes in addition to
@@ -52,7 +59,8 @@ public class Customer extends User {
      * Getters
      **************************************/
     /**
-        @return Returns the Customer's phoneNumber and address
+     *  @return Returns the Customer's ID, First and Last name,
+     *  PhoneNumber and Address
     */
     public int getID() {
         return ID;
@@ -74,6 +82,13 @@ public class Customer extends User {
         return address;
     }
 
+
+    /*************************************
+     * Getters
+     **************************************/
+    /**
+     @return Returns the Customer's Phone Number and Address, First and Last Name
+     */
     public void setFirst(String first) {
         firstName = first;
     }
