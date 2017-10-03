@@ -44,7 +44,7 @@ public class Customer extends User {
     public void display() {
         // Display's universal attributes in addition to
         // Customer's specific attributes.
-        System.out.printf("| %8s | %8s | %8s     | %10s     | %6s %5s  \n %64s %5s \n \n", "Customer", getID(), getFirstName()
+        System.out.printf("| %8s | %8s | %8s     | %10s     |%6s %5s  \n %63s %5s \n \n", "Customer", getID(), getFirstName()
                 , getLastName(), "Phone Number: ", getphoneNumber(), "  Address: ", getaddress());
 
     }

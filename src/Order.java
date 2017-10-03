@@ -50,7 +50,7 @@ public class Order {
 
     public void display() {
        // System.out.println(customerID + " " + employeeID + " " + trackingNum + " " + shippingCost + " " + shippingDate + " " + deliveryDate);
-        System.out.printf("|  %10s     | %10s    | %10s    | %10s     | %10.2f  | %10s|\n\n",
+        System.out.printf("|  %9s    | %10s  | %10s | %10s | %8.2f    | %10s       |\n\n",
                           customerID, trackingNum, shippingDate, deliveryDate, shippingCost, employeeID );
 
     }
