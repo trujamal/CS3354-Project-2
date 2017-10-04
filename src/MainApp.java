@@ -2,10 +2,13 @@ import java.util.*;
 
 /**
  * This is the main class of the ShippingStore database manager. It provides a
- * console for a user to use the 9 main commands.
+ * console for a user to use the 10 main commands.
  *
  * @author Jamal Rasool and Zach Sotak
+ * @since 2020
+ * @version 1.0
  */
+
 public class MainApp {
 
     /**
@@ -134,7 +137,6 @@ public class MainApp {
     public static void showAll(ShippingStore shippingstore) {
             PrintTable();
             shippingstore.showPackageOrders();
-            shippingstore.saveInfo();
     }
 
     /**
@@ -148,7 +150,12 @@ public class MainApp {
         String trackNum;
         String spec;
         String mail;
+
         String [] optionsArray = {"1","2","3","4"};
+        String[] mailArray = {"First", "Ground", "Priority", "Retail", "Metro"};
+        String [] specArray = {"Fragile", "Catalogs", "Books", "Do-not-bend", "n/a"};
+
+
 
         System.out.println("Please select a package type: ");
         System.out.println("1. Envelope \n"
@@ -159,28 +166,76 @@ public class MainApp {
         inputType = in.nextLine();
         try {
             if (!Arrays.asList(optionsArray).contains(inputType)) {
-                throw new BadInputException("Incorrect information") {
+                throw new BadInputException("Input out of bounds") {
                 };
             }
-
         } catch (BadInputException e) {
-
+            addNewPac(shippingstore);
         }
 
         switch(inputType) {
+
             case "1":
                 int height;
                 int width;
                 System.out.println("Please enter the Tracking number: ");
                 trackNum = in.nextLine();
+                try {
+                    if (trackNum.length() != 5) {
+                        throw new BadInputException("String must be 5 characters long, please try again:") {
+                        };
+                    }
+                } catch (BadInputException e) {
+                    trackNum = in.nextLine();
+                }
+
                 System.out.println("Please enter the Specification (Fragile, Catalogs, Books, Do-not-bend, n/a): ");
                 spec = in.nextLine();
+
+                try {
+                    if (!Arrays.asList(specArray).contains(spec)) {
+                        throw new BadInputException("ERROR: Please enter a value that is inside of the list: ") {
+                        };
+                    }
+                } catch (BadInputException e) {
+                    spec = in.nextLine();
+                }
+
                 System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
                 mail = in.nextLine();
+                try {
+                    if (!Arrays.asList(mailArray).contains(mail)) {
+                        throw new BadInputException("ERROR: Please enter a value that is inside of the list: ") {
+                        };
+                    }
+                } catch (BadInputException e) {
+                    mail = in.nextLine();
+                }
+
                 System.out.println("Please enter the height of the Envelope: ");
                 height = Integer.parseInt(in.nextLine());
-                System.out.println("Please enter the width of the Envelope: ");
+
+                try {
+                    if (height <= 0) {
+                        throw new BadInputException("ERROR: Please enter a valid integer value: ") {
+                        };
+                    }
+                } catch (BadInputException e) {
+                    height = Integer.parseInt(in.nextLine());
+                }
+
+                System.out.println("ERROR: Please enter the width of the Envelope: ");
                 width = Integer.parseInt(in.nextLine());
+
+                try {
+                    if (width <= 0) {
+                        throw new BadInputException("ERROR: Please enter a valid integer value: ") {
+                        };
+                    }
+                } catch (BadInputException e) {
+                    width = Integer.parseInt(in.nextLine());
+                }
+
 
                 Envelope e = new Envelope(trackNum, spec, mail, height, width);
                 shippingstore.addOrder(e);
@@ -191,14 +246,60 @@ public class MainApp {
                 int volume;
                 System.out.println("Please enter the Tracking number: ");
                 trackNum = in.nextLine();
+                try {
+                    if (trackNum.length() != 5) {
+                        throw new BadInputException("ERROR: String must be 5 characters long, please try again:") {
+                        };
+                    }
+                } catch (BadInputException a) {
+                    trackNum = in.nextLine();
+                }
+
                 System.out.println("Please enter the Specification (Fragile, Catalogs, Books, Do-not-bend, n/a): ");
                 spec = in.nextLine();
+                try {
+                    if (!Arrays.asList(specArray).contains(spec)) {
+                        throw new BadInputException("ERROR: Please enter a value that is inside of the list: ") {
+                        };
+                    }
+                } catch (BadInputException a) {
+                    spec = in.nextLine();
+                }
+
                 System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
                 mail = in.nextLine();
+                try {
+                    if (!Arrays.asList(mailArray).contains(mail)) {
+                        throw new BadInputException("ERROR: Please enter a value that is inside of the list: ") {
+                        };
+                    }
+                } catch (BadInputException a) {
+                    mail = in.nextLine();
+                }
+
                 System.out.println("Please enter the largest dimension of the box: ");
                 dimension = Integer.parseInt(in.nextLine());
+
+                try {
+                    if (dimension <= 0) {
+                        throw new BadInputException("ERROR: Please enter a valid integer value: ") {
+                        };
+                    }
+                } catch (BadInputException a) {
+                    dimension = Integer.parseInt(in.nextLine());
+                }
+
                 System.out.println("Please enter the volume of the box: ");
                 volume = Integer.parseInt(in.nextLine());
+
+                try {
+                    if (volume <= 0) {
+                        throw new BadInputException("ERROR: Please enter a valid integer value: ") {
+                        };
+                    }
+                } catch (BadInputException a) {
+                    volume = Integer.parseInt(in.nextLine());
+                }
 
                 Box b = new Box(trackNum, spec, mail, dimension, volume);
                 shippingstore.addOrder(b);
@@ -209,14 +310,60 @@ public class MainApp {
                 String content;
                 System.out.println("Please enter the Tracking number: ");
                 trackNum = in.nextLine();
+                try {
+                    if (trackNum.length() != 5) {
+                        throw new BadInputException("ERROR: String must be 5 characters long, please try again:") {
+                        };
+                    }
+                } catch (BadInputException j) {
+                    trackNum = in.nextLine();
+                }
+
                 System.out.println("Please enter the Specification (Fragile, Catalogs, Books, Do-not-bend, n/a): ");
                 spec = in.nextLine();
+                try {
+                    if (!Arrays.asList(specArray).contains(spec)) {
+                        throw new BadInputException("ERROR: Please enter a value that is inside of the list: ") {
+                        };
+                    }
+                } catch (BadInputException j) {
+                    spec = in.nextLine();
+                }
+
                 System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
                 mail = in.nextLine();
+                try {
+                    if (!Arrays.asList(mailArray).contains(mail)) {
+                        throw new BadInputException("ERROR: Please enter a value that is inside of the list: ") {
+                        };
+                    }
+                } catch (BadInputException j) {
+                    mail = in.nextLine();
+                }
+
                 System.out.println("Please enter the weight of the Crate: ");
                 weight = Float.parseFloat(in.nextLine());
+
+                try {
+                    if (weight <= 0) {
+                        throw new BadInputException("ERROR: Please enter a valid integer value: ") {
+                        };
+                    }
+                } catch (BadInputException j) {
+                    weight = Integer.parseInt(in.nextLine());
+                }
+
                 System.out.println("Please enter the contents of the Crate: ");
                 content = in.nextLine();
+
+                try {
+                    if (content.length() <= 0) {
+                        throw new BadInputException("ERROR: Please enter a valid description: ") {
+                        };
+                    }
+                } catch (BadInputException j) {
+                    content = in.nextLine();
+                }
 
                 Crate c = new Crate(trackNum, spec, mail, weight, content);
                 shippingstore.addOrder(c);
@@ -227,14 +374,60 @@ public class MainApp {
                 float diameter;
                 System.out.println("Please enter the Tracking number: ");
                 trackNum = in.nextLine();
+                try {
+                    if (trackNum.length() != 5) {
+                        throw new BadInputException("ERROR: String must be 5 characters long, please try again:") {
+                        };
+                    }
+                } catch (BadInputException x) {
+                    trackNum = in.nextLine();
+                }
+
                 System.out.println("Please enter the Specification (Fragile, Catalogs, Books, Do-not-bend, n/a): ");
                 spec = in.nextLine();
+                try {
+                    if (!Arrays.asList(specArray).contains(spec)) {
+                        throw new BadInputException("ERROR: Please enter a value that is inside of the list: ") {
+                        };
+                    }
+                } catch (BadInputException x) {
+                    spec = in.nextLine();
+                }
+
                 System.out.println("Please enter a mailing class (First, Ground, Priority, Retail, Metro): ");
                 mail = in.nextLine();
+                try {
+                    if (!Arrays.asList(mailArray).contains(mail)) {
+                        throw new BadInputException("ERROR: Please enter a value that is inside of the list: ") {
+                        };
+                    }
+                } catch (BadInputException x) {
+                    mail = in.nextLine();
+                }
                 System.out.println("Please enter the material of the Drum: ");
                 material = in.nextLine();
+
+                try {
+                    if (material.length() <= 0) {
+                        throw new BadInputException("ERROR: Please enter a valid description of the materials: ") {
+                        };
+                    }
+                } catch (BadInputException x) {
+                    material = in.nextLine();
+                }
+
+
                 System.out.println("Please enter the diameter of the Drum: ");
                 diameter = Float.parseFloat(in.nextLine());
+
+                try {
+                    if (diameter <= 0) {
+                        throw new BadInputException("ERROR: Please enter a valid integer value: ") {
+                        };
+                    }
+                } catch (BadInputException x) {
+                    diameter = Float.parseFloat(in.nextLine());
+                }
 
                 Drum d = new Drum(trackNum, spec, mail, material, diameter);
                 shippingstore.addOrder(d);
@@ -253,6 +446,16 @@ public class MainApp {
 
         System.out.println("\nPlease enter the tracking # of the package order to delete from the database.\n");
         String orderToDelete = in.nextLine();
+
+        try {
+            if (orderToDelete.length() != 5) {
+                throw new BadInputException("String must be 5 characters long, please try again:") {
+                };
+            }
+        } catch (BadInputException x) {
+            orderToDelete = in.nextLine();
+        }
+
         shippingstore.removeOrder(orderToDelete);
     }
 
@@ -266,6 +469,15 @@ public class MainApp {
         System.out.println("\nEnter the Tracking # of the order you wish to see.\n");
         String trackingNum = in.next();
         in.nextLine();
+
+        try {
+            if (trackingNum.length() != 5) {
+                throw new BadInputException("String must be 5 characters long, please try again:") {
+                };
+            }
+        } catch (BadInputException x) {
+            trackingNum = in.nextLine();
+        }
 
         int index = shippingstore.findPackageOrder(trackingNum);
         if(index >= 0)
@@ -294,11 +506,21 @@ public class MainApp {
         int id;
         String first;
         String last;
+        String [] optionsArray = {"1","2"};
 
         System.out.println("Please select a User type: ");
         System.out.println("1. Customer \n"
                 + "2. Employee");
         choice = in.nextLine();
+
+        try {
+            if (!Arrays.asList(optionsArray).contains(choice)) {
+                throw new BadInputException("Input out of bounds") {
+                };
+            }
+        } catch (BadInputException e) {
+            addNewUser(usermanager);
+        }
 
         switch(choice) {
             case "1":
@@ -308,12 +530,51 @@ public class MainApp {
                 id = usermanager.idGen();
                 System.out.println("Please enter the Customer's first name: ");
                 first = in.nextLine();
+
+                try {
+                    if (first.length() <= 0) {
+                        throw new BadInputException("Invalid input, Please try again:") {
+                        };
+                    }
+                } catch (BadInputException x) {
+                    first = in.nextLine();
+                }
+
                 System.out.println("Please enter the Customer's last name: ");
                 last = in.nextLine();
+
+                try {
+                    if (last.length() <= 0) {
+                        throw new BadInputException("Invalid input, Please try again:") {
+                        };
+                    }
+                } catch (BadInputException x) {
+                    last = in.nextLine();
+                }
+
                 System.out.println("Please enter the Customer's phone number: ");
                 number = in.nextLine();
+
+                try {
+                    if (number.length() != 10) {
+                        throw new BadInputException("Telephone number besta be 10 digits long! TRY AGAIN:") {
+                        };
+                    }
+                } catch (BadInputException x) {
+                    number = in.nextLine();
+                }
+
                 System.out.println("Please enter the Customer's address: ");
                 address = in.nextLine();
+
+                try {
+                    if (address.length() <= 0) {
+                        throw new BadInputException("Invalid input, Please try again:") {
+                        };
+                    }
+                } catch (BadInputException x) {
+                    address = in.nextLine();
+                }
 
                 Customer c = new Customer(id, first, last, number, address);
                 usermanager.addUser(c);
@@ -327,14 +588,63 @@ public class MainApp {
                 id = usermanager.idGen();
                 System.out.println("Please enter the Employee's first name: ");
                 first = in.nextLine();
+
+                try {
+                    if (first.length() <= 0) {
+                        throw new BadInputException("Invalid input, Please try again:") {
+                        };
+                    }
+                } catch (BadInputException x) {
+                    first = in.nextLine();
+                }
+
                 System.out.println("Please enter the Employee's last name: ");
                 last = in.nextLine();
+
+                try {
+                    if (last.length() <= 0) {
+                        throw new BadInputException("Invalid input, Please try again:") {
+                        };
+                    }
+                } catch (BadInputException x) {
+                    last = in.nextLine();
+                }
+
                 System.out.println("Please enter the Employee's SSN: ");
                 SSN = Integer.parseInt(in.nextLine());
+
+                try {
+                    if (SSN <= 0) {
+                        throw new BadInputException("Invalid input, Please try again:") {
+                        };
+                    }
+                } catch (BadInputException x) {
+                    SSN = Integer.parseInt(in.nextLine());
+                }
+
                 System.out.println("Please enter the Employee's monthly salary(float): ");
                 monthS = Float.parseFloat(in.nextLine());
+
+                try {
+                    if (monthS <= 0) {
+                        throw new BadInputException("Invalid input, Please try again:") {
+                        };
+                    }
+                } catch (BadInputException x) {
+                    monthS = Float.parseFloat(in.nextLine());
+                }
+
                 System.out.println("Please enter the Employee's bank account number: ");
                 directDeposit = Integer.parseInt(in.nextLine());
+
+                try {
+                    if (directDeposit <= 0) {
+                        throw new BadInputException("Invalid input, Please try again:") {
+                        };
+                    }
+                } catch (BadInputException x) {
+                    directDeposit = Integer.parseInt(in.nextLine());
+                }
 
                 Employee e = new Employee(id, first, last, SSN, monthS, directDeposit);
                 usermanager.addUser(e);

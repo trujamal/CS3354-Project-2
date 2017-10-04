@@ -15,6 +15,20 @@ public class Transaction implements Serializable {
 
     public Transaction() throws IOException {
         transactionList = new ArrayList<>();
+
+        try {
+            FileInputStream fileIn = new FileInputStream("transactions.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            transactionList = (ArrayList<Order>) in.readObject();
+            in.close();
+            fileIn.close();
+        }
+        catch(IOException i) {
+            System.out.println("transactions.ser file not found");
+        }
+        catch(ClassNotFoundException c) {
+            System.out.println("Transaction class not found");
+        }
     }
 
     public Transaction(int customerid, String trackingnumber, int shippingdate, int deliverydate, float shippingcost, int employeeid){
@@ -43,21 +57,16 @@ public class Transaction implements Serializable {
     @SuppressWarnings("Duplicates")
     public void saveInfo()
     {
-        OutputStream file = null;
-        OutputStream buffer = null;
-        ObjectOutput output = null;
-
         try {
-            file = new FileOutputStream("Transaction.ser");
-            buffer = new BufferedOutputStream(file);
-            output = new ObjectOutputStream(buffer);
-
-            output.writeObject(transactionList);
-
-            output.close();
-
-        } catch (Exception c) {
-            System.out.println(c);
+            FileOutputStream fileOut = new FileOutputStream("transactions.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(transactionList);
+            out.close();
+            fileOut.close();
+            System.out.printf("Serialized data is saved as transactions.ser\n");
+        }
+        catch(IOException i) {
+            i.printStackTrace();
         }
     }
 

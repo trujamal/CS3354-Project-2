@@ -9,7 +9,17 @@ public class UserManager implements Serializable {
     private ArrayList<User> userList;
 
     public UserManager() throws IOException {
-        userList = new ArrayList<>();
+        try {
+            FileInputStream fileIn = new FileInputStream("users.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            userList = (ArrayList<User>) in.readObject();
+            in.close();
+            fileIn.close();
+        } catch (IOException i) {
+            System.out.println("users.ser file not found");
+        } catch (ClassNotFoundException c) {
+            System.out.println("User class not found");
+        }
     }
 
     public void showUsers() { showUsers(userList); }
@@ -116,21 +126,16 @@ public class UserManager implements Serializable {
     @SuppressWarnings("Duplicates")
     public void saveInfo()
     {
-        OutputStream file = null;
-        OutputStream buffer = null;
-        ObjectOutput output = null;
-
         try {
-            file = new FileOutputStream("Users.ser");
-            buffer = new BufferedOutputStream(file);
-            output = new ObjectOutputStream(buffer);
-
-            output.writeObject(userList);
-
-            output.close();
-
-        } catch (Exception c){
-            System.out.println(c);
+            FileOutputStream fileOut = new FileOutputStream("users.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(userList);
+            out.close();
+            fileOut.close();
+            System.out.printf("Serialized data is saved as users.ser\n");
+        }
+        catch(IOException i) {
+            i.printStackTrace();
         }
     }
 }
