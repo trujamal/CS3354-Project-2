@@ -1,15 +1,4 @@
-import com.sun.org.apache.xerces.internal.parsers.IntegratedParserConfiguration;
-import sun.rmi.rmic.Main;
-
-import java.awt.*;
-import java.io.IOException;
-import java.lang.Package;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * This is the main class of the ShippingStore database manager. It provides a
@@ -42,26 +31,42 @@ public class MainApp {
         do {
             MenuOptions();
             choice = in.nextInt();
-
-            switch(choice) {
-                    case 1: showAll(shippingstore); break;
-                    case 2: addNewPac(shippingstore); break;
-                    case 3: deletePac(shippingstore); break;
-                    case 4: searchPac(shippingstore); break;
-                    case 5: showList(usermanager); break;
-                    case 6: addNewUser(usermanager); break;
-                    case 7: usermanager.updateUser(); break;
-                    case 8: completeShip(transaction, shippingstore); break;
-                    case 9: showCompleted(transaction);
-                    case 10: exitProgram = true; break;
-                    default: System.out.println("Please enter another command or 'h' to list the commands.\n");
+            try {
+                switch (choice) {
+                    case 1:
+                        showAll(shippingstore);break;
+                    case 2:
+                        addNewPac(shippingstore);break;
+                    case 3:
+                        deletePac(shippingstore);break;
+                    case 4:
+                        searchPac(shippingstore);break;
+                    case 5:
+                        showList(usermanager);break;
+                    case 6:
+                        addNewUser(usermanager);break;
+                    case 7:
+                        usermanager.updateUser();break;
+                    case 8:
+                        completeShip(transaction, shippingstore);break;
+                    case 9:
+                        showCompleted(transaction); break;
+                    case 10:
+                        exitProgram = true;
+                        break;
+                    default: System.err.println("Please select a number between 1 and 11.");
+                }
+            } catch (InputMismatchException ex) {
+                System.err.println("Input mismatch. Please Try again.");
+                in.nextLine();
+                continue;
             }
-
         } while(!exitProgram);
 
         usermanager.saveInfo();
         transaction.saveInfo();
         shippingstore.saveInfo();
+
         System.out.println("Exiting Program, Thank You!");
         System.out.println("Done!");
     }
@@ -112,20 +117,25 @@ public class MainApp {
             shippingstore.saveInfo();
     }
 
-    public static void addNewPac(ShippingStore shippingstore) {
+    public static void addNewPac(ShippingStore shippingstore) throws BadInputException {
         Scanner in = new Scanner(System.in);
         String inputType;
         String trackNum;
         String spec;
         String mail;
-
+        String [] optionsArray = {"1","2","3","4"};
 
         System.out.println("Please select a package type: ");
         System.out.println("1. Envelope \n"
                 + "2. Box \n"
                 + "3. Crate \n"
                 + "4. Drum \n");
+
         inputType = in.nextLine();
+
+        if(!Arrays.asList(optionsArray).contains(inputType)){
+            throw new BadInputException("Wrong number selected you fuck");
+        }
 
         switch(inputType) {
             case "1":
