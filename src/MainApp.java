@@ -28,7 +28,7 @@ public class MainApp {
      * @param args this program expects no command line arguments
      * @throws Exception
      */
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception, BadInputException {
         Scanner in = new Scanner(System.in);
 
         //Array list
@@ -51,17 +51,15 @@ public class MainApp {
                     case 5: showList(usermanager); break;
                     case 6: addNewUser(usermanager); break;
                     case 7: usermanager.updateUser(); break;
-                    case 8: completeShip(transaction, shippingstore); break;
+                    case 8:
+                        showList(usermanager);
+                        completeShip(transaction, shippingstore); break;
                     case 9: showCompleted(transaction);
                     case 10: exitProgram = true; break;
                     default: System.out.println("Please enter another command or 'h' to list the commands.\n");
                 }
             } catch (InputMismatchException ex) {
                 System.out.println("Input mismatch. Please try again");
-                continue;
-            } catch (BadInputException ex) {
-                System.out.println("Bad input. " +ex.getMessage());
-                System.out.println("Please try again.");
                 continue;
             }
         } while(!exitProgram);
