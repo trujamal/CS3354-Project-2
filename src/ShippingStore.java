@@ -28,9 +28,22 @@ public class ShippingStore {
      */
     public ShippingStore() throws IOException {
         packageOrderList = new ArrayList<>();
-        updateInfo();
 
+        try {
+            FileInputStream fileIn = new FileInputStream("packages.ser");
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+            packageOrderList = (ArrayList<Package>) in.readObject();
+            in.close();
+            fileIn.close();
+        }
+        catch(IOException i) {
+            System.out.println("packages.ser file not found");
+        }
+        catch(ClassNotFoundException c) {
+            System.out.println("Package class not found");
+        }
     }
+
 
     /**
      * Method showPackageOrder displays the current list of package orders in the Arraylist in no
@@ -106,47 +119,18 @@ public class ShippingStore {
     @SuppressWarnings("Duplicates")
     public void saveInfo()
     {
-        OutputStream file = null;
-        OutputStream buffer = null;
-        ObjectOutput output = null;
-
         try {
-            file = new FileOutputStream("ShippingStore.ser");
-            buffer = new BufferedOutputStream(file);
-            output = new ObjectOutputStream(buffer);
-
-            output.writeObject(packageOrderList);
-
-            output.close();
-
-        } catch (Exception c){
-            System.out.println(c);
-        } finally {
-            System.out.println("Done!");
+            FileOutputStream fileOut = new FileOutputStream("packages.ser");
+            ObjectOutputStream out = new ObjectOutputStream(fileOut);
+            out.writeObject(packageOrderList);
+            out.close();
+            fileOut.close();
+            System.out.printf("Serialized data is saved as packages.ser\n");
         }
-    }
-
-    public void updateInfo()
-    {
-        InputStream file = null;
-        InputStream buffer = null;
-        ObjectInput input = null;
-
-        try {
-            file = new FileInputStream("ShippingStore.ser");
-            buffer = new BufferedInputStream(file);
-            input = new ObjectInputStream(buffer);
-
-            List<Package> recoveredPackages = (List<Package>)input.readObject();
-            for(Package p: recoveredPackages) {
-                System.out.println("Recovered Packages: " + p);
-            }
-
-            input.close();
-
-        } catch (Exception c){
-            System.out.println(c);
+        catch(IOException i) {
+            i.printStackTrace();
         }
+
     }
 
 }

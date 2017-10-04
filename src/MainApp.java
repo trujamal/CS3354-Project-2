@@ -108,7 +108,6 @@ public class MainApp {
     public static void showAll(ShippingStore shippingstore) {
             PrintTable();
             shippingstore.showPackageOrders();
-            shippingstore.saveInfo();
     }
 
     public static void addNewPac(ShippingStore shippingstore) {
