@@ -157,9 +157,14 @@ public class MainApp {
                 + "4. Drum \n");
 
         inputType = in.nextLine();
+        try {
+            if (!Arrays.asList(optionsArray).contains(inputType)) {
+                throw new BadInputException("Incorrect information") {
+                };
+            }
 
-        if(!Arrays.asList(optionsArray).contains(inputType)){
-            throw new BadInputException("Wrong number selected you fuck");
+        } catch (BadInputException e) {
+
         }
 
         switch(inputType) {
@@ -247,7 +252,7 @@ public class MainApp {
     }
 
     /**
-     * searchPac is designed to search for a 
+     * searchPac is designed to search for a
      * @param shippingstore
      */
 
