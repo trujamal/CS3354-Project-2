@@ -31,19 +31,12 @@ public class MainApp {
     public static void main(String[] args) throws Exception {
         Scanner in = new Scanner(System.in);
 
-
-
-        // Selection
-        String selection;
-        selection = in.nextLine();
-
         //Array list
         ShippingStore shippingstore = new ShippingStore();
         UserManager usermanager = new UserManager();
         Transaction transaction = new Transaction();
 
-
-        int choice = 0;
+        int choice;
         boolean exitProgram = false;
         do {
             MenuOptions();
@@ -76,6 +69,7 @@ public class MainApp {
         usermanager.saveInfo();
         transaction.saveInfo();
         shippingstore.saveInfo();
+
         System.out.println("Exiting Program, Thank You!");
         System.out.println("Done!");
     }
@@ -117,8 +111,6 @@ public class MainApp {
                 "CUSTOMER ID", "TRACKING #", "SHIPPING", "DELIVERY", "PRICE", "EMPLOYEE ID");
         System.out.println("-------------------------------------------------------------------------------------------");
     }
-
-
 
     public static void showAll(ShippingStore shippingstore) {
             PrintTable();

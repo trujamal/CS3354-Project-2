@@ -1,24 +1,7 @@
-import java.io.IOException;
+import java.;
 
-public class BadInputException extends Exception {
-
-    public BadInputException () {
-        super();
+public class BadInputException Exception {
+    public BadInputException(String message) {
+        super(message);
     }
-
-
-    public BadInputException(String s) {
-        super(s);
-    }
-
-    public BadInputException(Throwable cause) {
-        super (cause);
-    }
-
-
-    public BadInputException(String message, Throwable throwable) {
-        super(message, throwable);
-    }
-
-
 }
