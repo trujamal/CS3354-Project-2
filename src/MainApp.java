@@ -242,6 +242,11 @@ public class MainApp {
         }
     }
 
+    /**
+     * deletePac Goes through and deletes the package from
+     * @param shippingstore
+     */
+
     public static void deletePac(ShippingStore shippingstore) {
         Scanner in = new Scanner(System.in);
         shippingstore.showPackageOrders();
