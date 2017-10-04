@@ -117,16 +117,24 @@ public class UserManager implements Serializable {
     @SuppressWarnings("Duplicates")
     public void saveInfo()
     {
+        OutputStream file = null;
+        OutputStream buffer = null;
+        ObjectOutput output = null;
+
         try {
-                OutputStream file = new FileOutputStream("Users.ser");
-                OutputStream buffer = new BufferedOutputStream(file);
-                ObjectOutput output = new ObjectOutputStream(buffer);
-                output.writeObject(userList);
+            file = new FileOutputStream("Users.ser");
+            buffer = new BufferedOutputStream(file);
+            output = new ObjectOutputStream(buffer);
 
-        } catch (Exception b){
-            System.out.println(b);
+            output.writeObject(userList);
+
+            output.close();
+
+        } catch (Exception c){
+            System.out.println(c);
+        } finally {
+            System.out.println("Done!");
         }
-
     }
 }
 

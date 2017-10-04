@@ -43,17 +43,24 @@ public class Transaction {
     @SuppressWarnings("Duplicates")
     public void saveInfo()
     {
+        OutputStream file = null;
+        OutputStream buffer = null;
+        ObjectOutput output = null;
+
         try {
-            transactionList.get(0).display();
-            OutputStream f = new FileOutputStream("Transaction.ser");
-            OutputStream b = new BufferedOutputStream(f);
-            ObjectOutput output = new ObjectOutputStream(b);
+            file = new FileOutputStream("Transaction.ser");
+            buffer = new BufferedOutputStream(file);
+            output = new ObjectOutputStream(buffer);
+
             output.writeObject(transactionList);
+
+            output.close();
 
         } catch (Exception c){
             System.out.println(c);
+        } finally {
+            System.out.println("Done!");
         }
-
     }
 
         /*************************************

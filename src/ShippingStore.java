@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -46,6 +47,7 @@ public class ShippingStore {
      * @param orders the package order list to be displayed.
      */
     private void showPackageOrders(ArrayList<Package> orders) {
+        Arrays.sort(orders.toArray());
         for(int i = 0; i < orders.size(); i++) {
             orders.get(i).display();
         }
@@ -71,9 +73,7 @@ public class ShippingStore {
                 index = i;
                 break;
             }
-
         }
-
         return index;
     }
 
@@ -102,16 +102,24 @@ public class ShippingStore {
     @SuppressWarnings("Duplicates")
     public void saveInfo()
     {
+        OutputStream file = null;
+        OutputStream buffer = null;
+        ObjectOutput output = null;
+
         try {
-            OutputStream f = new FileOutputStream("ShippingStore.ser");
-            OutputStream b = new BufferedOutputStream(f);
-            ObjectOutput output = new ObjectOutputStream(b);
+            file = new FileOutputStream("ShippingStore.ser");
+            buffer = new BufferedOutputStream(file);
+            output = new ObjectOutputStream(buffer);
+
             output.writeObject(packageOrderList);
+
+            output.close();
 
         } catch (Exception c){
             System.out.println(c);
+        } finally {
+            System.out.println("Done!");
         }
-
     }
 
 }
