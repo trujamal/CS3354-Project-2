@@ -1,3 +1,5 @@
+import java.io.Serializable;
+
 /**
  * The abstract class User represents the details that each user holds.
  * The class sets user's first and last name and ID. User's information varies
@@ -7,7 +9,7 @@
  * @author Jamal and Zach
  *
  */
-public abstract class User {
+public abstract class User implements Serializable{
     int ID;
     String firstName;
     String lastName;

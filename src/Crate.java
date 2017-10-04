@@ -1,5 +1,6 @@
+import java.io.Serializable;
 
-public class Crate extends Package {
+public class Crate extends Package implements Serializable{
 
     /***************************************************************************
      * VARIABLE DEFINITIONS

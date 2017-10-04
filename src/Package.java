@@ -1,9 +1,11 @@
+import java.io.Serializable;
+
 /**
  * Default class for package stuff
  *
  */
 
-public abstract class Package {
+public abstract class Package implements Serializable{
     // Constructors
     // Getters
     String trackingNumber;
@@ -12,9 +14,9 @@ public abstract class Package {
 
     Package(){}
 
-    abstract String getTrackingNumber();
-    abstract String getSpef();
-    abstract String getMailingClass();
+    abstract public String getTrackingNumber();
+    abstract public String getSpef();
+    abstract public String getMailingClass();
 
     abstract void display();
 

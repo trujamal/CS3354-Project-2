@@ -1,7 +1,9 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Scanner;
+import java.util.Comparator;
+import java.util.Collections;
+import static java.util.Collections.*;
 
 /**
  * This class is used to represent a database interface for a list of
@@ -47,12 +49,10 @@ public class ShippingStore {
      * @param orders the package order list to be displayed.
      */
     private void showPackageOrders(ArrayList<Package> orders) {
-        Arrays.sort(orders.toArray());
         for(int i = 0; i < orders.size(); i++) {
             orders.get(i).display();
         }
     }
-
 
     /**
      * This method can be used to find a package order in the Arraylist of orders.

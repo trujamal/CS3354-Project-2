@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Box extends Package {
+public class Box extends Package implements Serializable{
     /***************************************************************************
      * VARIABLE DEFINITIONS
      **************************************************************************/

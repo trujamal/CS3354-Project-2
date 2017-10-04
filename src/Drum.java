@@ -1,6 +1,7 @@
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Drum extends Package {
+public class Drum extends Package implements Serializable {
     /***************************************************************************
      * VARIABLE DEFINITIONS
      **************************************************************************/
