@@ -1,9 +1,5 @@
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Collections;
-import static java.util.Collections.*;
+import java.util.*;
 
 /**
  * This class is used to represent a database interface for a list of
@@ -32,6 +28,8 @@ public class ShippingStore {
      */
     public ShippingStore() throws IOException {
         packageOrderList = new ArrayList<>();
+        updateInfo();
+
     }
 
     /**
@@ -39,6 +37,12 @@ public class ShippingStore {
      * particular order.
      */
     public void showPackageOrders() {
+        Collections.sort(packageOrderList, new Comparator<Package>() {
+            public int compare(Package object1, Package object2){
+                return object1.getTrackingNumber().compareTo(object2.getTrackingNumber());
+            }
+        });
+
         showPackageOrders(packageOrderList);
     }
 
@@ -119,6 +123,29 @@ public class ShippingStore {
             System.out.println(c);
         } finally {
             System.out.println("Done!");
+        }
+    }
+
+    public void updateInfo()
+    {
+        InputStream file = null;
+        InputStream buffer = null;
+        ObjectInput input = null;
+
+        try {
+            file = new FileInputStream("ShippingStore.ser");
+            buffer = new BufferedInputStream(file);
+            input = new ObjectInputStream(buffer);
+
+            List<Package> recoveredPackages = (List<Package>)input.readObject();
+            for(Package p: recoveredPackages) {
+                System.out.println("Recovered Packages: " + p);
+            }
+
+            input.close();
+
+        } catch (Exception c){
+            System.out.println(c);
         }
     }
 

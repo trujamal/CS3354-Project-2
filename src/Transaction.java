@@ -14,7 +14,7 @@ public class Transaction implements Serializable {
     private int employeeID;
 
     public Transaction() throws IOException {
-        transactionList = new ArrayList<Order>();
+        transactionList = new ArrayList<>();
     }
 
     public Transaction(int customerid, String trackingnumber, int shippingdate, int deliverydate, float shippingcost, int employeeid){
@@ -56,10 +56,8 @@ public class Transaction implements Serializable {
 
             output.close();
 
-        } catch (Exception c){
+        } catch (Exception c) {
             System.out.println(c);
-        } finally {
-            System.out.println("Done!");
         }
     }
 

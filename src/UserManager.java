@@ -131,8 +131,6 @@ public class UserManager implements Serializable {
 
         } catch (Exception c){
             System.out.println(c);
-        } finally {
-            System.out.println("Done!");
         }
     }
 }

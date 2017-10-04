@@ -25,7 +25,6 @@ public class MainApp {
         UserManager usermanager = new UserManager();
         Transaction transaction = new Transaction();
 
-
         int choice;
         boolean exitProgram = false;
         do {
