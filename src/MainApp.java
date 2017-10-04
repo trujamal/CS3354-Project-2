@@ -31,26 +31,19 @@ public class MainApp {
     public static void main(String[] args) throws Exception {
         Scanner in = new Scanner(System.in);
 
-
-
-        // Selection
-        String selection;
-        selection = in.nextLine();
-
         //Array list
         ShippingStore shippingstore = new ShippingStore();
         UserManager usermanager = new UserManager();
         Transaction transaction = new Transaction();
 
 
-        int choice = 0;
+        int choice;
         boolean exitProgram = false;
         do {
             MenuOptions();
-            try {
-                choice = in.nextInt();
+            choice = in.nextInt();
 
-                switch(choice) {
+            switch(choice) {
                     case 1: showAll(shippingstore); break;
                     case 2: addNewPac(shippingstore); break;
                     case 3: deletePac(shippingstore); break;
@@ -62,15 +55,8 @@ public class MainApp {
                     case 9: showCompleted(transaction);
                     case 10: exitProgram = true; break;
                     default: System.out.println("Please enter another command or 'h' to list the commands.\n");
-                }
-            } catch (InputMismatchException ex) {
-                System.out.println("Input mismatch. Please try again");
-                continue;
-            } catch (BadInputException ex) {
-                System.out.println("Bad input. " +ex.getMessage());
-                System.out.println("Please try again.");
-                continue;
             }
+
         } while(!exitProgram);
 
         usermanager.saveInfo();
@@ -314,7 +300,7 @@ public class MainApp {
         int cID;
         int eID;
         String tracking;
-        int cost;
+        float cost;
         String shippingDate;
         String deliveryDate;
 
@@ -325,7 +311,7 @@ public class MainApp {
         System.out.println("Please enter the package tracking number: ");
         tracking = in.nextLine();
         System.out.println("Please enter the price of shipping the package: ");
-        cost = Integer.parseInt(in.nextLine());
+        cost = Float.parseFloat(in.nextLine());
         System.out.println("Please enter the date the package will be shipped: ");
         shippingDate = in.nextLine();
         System.out.println("Please enter the date the package will be delivered: ");

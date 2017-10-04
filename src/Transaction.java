@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
 
-public class Transaction {
+public class Transaction implements Serializable {
 
     private ArrayList<Order> transactionList;
 

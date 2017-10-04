@@ -1,3 +1,6 @@
+import java.awt.*;
+import java.io.Serializable;
+
 /**
  * An Order is used to represent a completed order in the shipping store's database.
  * It is identified by its tracking number, and holds other information like customer's ID, shipping date,
@@ -7,7 +10,7 @@
  *
  */
 
-public class Order {
+public class Order implements Serializable{
     private int customerID;
     private String trackingNum;
     private String shippingDate;
