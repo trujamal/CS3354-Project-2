@@ -25,35 +25,35 @@ public class MainApp {
         UserManager usermanager = new UserManager();
         Transaction transaction = new Transaction();
 
-        int choice;
+        String choice;
         boolean exitProgram = false;
         do {
             MenuOptions();
-            choice = in.nextInt();
+            choice = in.nextLine();
             try {
                 switch (choice) {
-                    case 1:
+                    case "1":
                         showAll(shippingstore);break;
-                    case 2:
+                    case "2":
                         addNewPac(shippingstore);break;
-                    case 3:
+                    case "3":
                         deletePac(shippingstore);break;
-                    case 4:
+                    case "4":
                         searchPac(shippingstore);break;
-                    case 5:
+                    case "5":
                         showList(usermanager);break;
-                    case 6:
+                    case "6":
                         addNewUser(usermanager);break;
-                    case 7:
+                    case "7":
                         usermanager.updateUser();break;
-                    case 8:
+                    case "8":
                         completeShip(transaction, shippingstore);break;
-                    case 9:
+                    case "9":
                         showCompleted(transaction); break;
-                    case 10:
+                    case "10":
                         exitProgram = true;
                         break;
-                    default: System.err.println("Please select a number between 1 and 11.");
+                    default: System.err.println("Please select a number between 1 and 10.");
                 }
             } catch (InputMismatchException ex) {
                 System.err.println("Input mismatch. Please Try again.");
@@ -69,6 +69,11 @@ public class MainApp {
         System.out.println("Exiting Program, Thank You!");
         System.out.println("Done!");
     }
+
+    /**
+     * MenuOptions is designed to display all of the different options the user has to pick from in order to start the
+     * main portion of the program.
+     */
 
     public static void MenuOptions()
     {
@@ -86,12 +91,20 @@ public class MainApp {
         System.out.println(welcomeMessage);
     }
 
+    /**
+     * PrintTable is designed to just print the header portion of the table with the right output information.
+     */
+
     public static void PrintTable() {
         System.out.println("----------------------------------------------------------------------------------");
         System.out.format("| %10s | %8s | %13s | %8s | %12s         |\n",
                  "TYPE", "TRACKING #", "SPECIFICATION", "CLASS", "OTHER DETAILS");
         System.out.println("----------------------------------------------------------------------------------");
     }
+
+    /**
+     * PrintUserTable is designed to print the users header portion of the project.
+     */
 
     public static void PrintUserTable() {
         System.out.println("----------------------------------------------------------------------------------");
@@ -101,6 +114,10 @@ public class MainApp {
 
     }
 
+    /**
+     *  Print Transaction Table is designed to just print the header portion of the transaction table
+     */
+
     public static void PrintTransactionTable() {
         System.out.println("-------------------------------------------------------------------------------------------");
         System.out.format("| %8s   | %8s  |  %8s  |  %8s  |  %8s   |   %8s   |\n",
@@ -108,7 +125,11 @@ public class MainApp {
         System.out.println("-------------------------------------------------------------------------------------------");
     }
 
-
+    /**]
+     * Show All displays all of the information in the shipping store class
+     * @param shippingstore contains the array information for the shipping store class; including all of the packages
+     *                      that would be included
+     */
 
     public static void showAll(ShippingStore shippingstore) {
             PrintTable();
@@ -116,6 +137,11 @@ public class MainApp {
             shippingstore.saveInfo();
     }
 
+    /**
+     * addNewPac is designed to add a new package to the shippingstore array
+     * @param shippingstore shippoing sto re
+     * @throws BadInputException
+     */
     public static void addNewPac(ShippingStore shippingstore) throws BadInputException {
         Scanner in = new Scanner(System.in);
         String inputType;
@@ -218,8 +244,12 @@ public class MainApp {
         System.out.println("\nPlease enter the tracking # of the package order to delete from the database.\n");
         String orderToDelete = in.nextLine();
         shippingstore.removeOrder(orderToDelete);
-
     }
+
+    /**
+     * searchPac is designed to search for a 
+     * @param shippingstore
+     */
 
     public static void searchPac(ShippingStore shippingstore) {
         Scanner in = new Scanner(System.in);
@@ -234,14 +264,19 @@ public class MainApp {
             System.out.println("Package was not found.");
     }
 
+    /**
+     * Showlist is designed to show the list of users in the database
+     * @param usermanager object of users
+     */
+
     public static void showList(UserManager usermanager) {
         PrintUserTable();
         usermanager.showUsers();
     }
 
     /**
-     *
-     * @param usermanager
+     * addNewUser is designed to add a new user to the database
+     * @param usermanager the array of users
      */
     public static void addNewUser(UserManager usermanager) {
         Scanner in = new Scanner(System.in);
